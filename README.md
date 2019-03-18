@@ -1,7 +1,7 @@
 #### Software-eng-Studio-1A
 
 
-##### Team 4 members: 
+##### Team 4 The Win members: 
 
 * Andy: @kissmyuzi
 

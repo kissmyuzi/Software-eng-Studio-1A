@@ -7,4 +7,4 @@
 * Anjali: @anjalikalambe
 * Emanuel: @unitedek
 * Joseph: @JoeCode99
-* Hector: @HdorguettA
+* Hector: @HdroguettA

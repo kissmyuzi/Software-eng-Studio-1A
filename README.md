@@ -8,3 +8,4 @@
 * Emanuel: @unitedek
 * Joseph: @JoeCode99
 * Hector: @HdroguettA
+* Alex: @Alex-G-Bell

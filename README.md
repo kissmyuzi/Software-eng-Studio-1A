@@ -3,9 +3,11 @@
 
 ##### Team 4 members: 
 
-* Saanchi: @saanchimaheshwari
-* Anjali: @anjalikalambe
-* Emanuel: @unitedek
-* Joseph: @JoeCode99
-* Hector: @HdroguettA
-* Alex: @Alex-G-Bell
+* Andy: @kissmyuzi    -Application Security Tester and Response
+* Saanchi: @saanchimaheshwari   -BA and Design
+* Anjali: @anjalikalambe    -BA and Design
+* Emanuel: @unitedek    -Algorithm and Solutions
+* Joseph: @JoeCode99    -Algorithm and Solutions
+* Hector: @HdroguettA   -Algorithm and Solutions
+* Alex: @Alex-G-Bell    -Scrum Master and Leader
+

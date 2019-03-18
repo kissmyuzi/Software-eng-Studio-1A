@@ -11,30 +11,30 @@
 
 * Saanchi: @saanchimaheshwari
 
-  BA and Design
+  BA and Designer
 
 
 * Anjali: @anjalikalambe  
 
-  BA and Design
+  BA and Designer
 
 
 * Emanuel: @unitedek    
 
-  Algorithm and Solutions
+  Algorithm and Solutions Dev
 
 
 * Joseph: @JoeCode99    
 
-  Algorithm and Solutions
+  Algorithm and Solutions Dev
 
 
 * Hector: @HdroguettA   
 
-  Algorithm and Solutions
+  Algorithm and Solutions Dev
 
 
 * Alex: @Alex-G-Bell    
 
-Scrum Master and Leader
+  Scrum Master and Leader
 

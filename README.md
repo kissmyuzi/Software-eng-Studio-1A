@@ -37,8 +37,4 @@
 * Alex: @Alex-G-Bell    
 
   Scrum Master and Leader
-  
-  1
-  1
-  //2
-
+ 

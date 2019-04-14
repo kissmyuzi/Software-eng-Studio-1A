@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="277dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -25,33 +27,34 @@
 
 
         <EditText
-            android:layout_marginVertical="15dp"
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
             android:hint="Enter your Email"
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:layout_marginVertical="15dp"
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
             android:hint="Enter your Password"
             android:inputType="textPassword" />
 
         <Button
-            android:layout_marginVertical="15dp"
             android:id="@+id/buttonRegister"
-            android:text="Register User"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="15dp"
+            android:text="Register User" />
+
         <TextView
-            android:textAlignment="center"
-            android:text="Already Registered? Sign in here."
             android:id="@+id/textViewSignin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Already Registered? Sign in here."
+            android:textAlignment="center" />
 
     </LinearLayout>
 

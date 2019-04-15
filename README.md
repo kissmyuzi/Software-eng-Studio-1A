@@ -55,5 +55,3 @@ Communication and cohesive teamwork: in order to ensure seamless development.
 * Alex: @Alex-G-Bell    
 
   Scrum Master and Team Leader
-
-  andy123 test

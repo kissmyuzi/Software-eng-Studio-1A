@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); //hIDING nAVIGATION bAR
+
         firebaseAuth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(this);
@@ -99,6 +101,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(view == textViewSignin) {
             //will open login activity here
+        }
+    }
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                          //  | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN                               This Line Hides the status bar 1/2
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                           // | View.SYSTEM_UI_FLAG_FULLSCREEN                                      This Line Hides the status bar 2/2
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
 }

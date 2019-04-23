@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">LoginActivity</string>
+
+    <string-array name="userType">
+        <item>Student</item>
+        <item>Tutor</item>
+    </string-array>
+
+    <string name="Role">userType</string>
+
+    <string name="default_text">--</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 </resources>

@@ -47,27 +47,21 @@ public class Note {
     public String noteId() {
         return noteId;
     }
-
     public String noteIcon() {
         return noteIcon;
     }
-
     public String noteName() {
         return noteName;
     }
-
     public int grade() {
         return grade;
     }
-
     public String state() {
         return state;
     }
-
     public String date() {
         return date;
     }
-
     public String fileExt() {
         return fileExt;
     }

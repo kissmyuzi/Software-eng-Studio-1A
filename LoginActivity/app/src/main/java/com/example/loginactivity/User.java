@@ -2,9 +2,12 @@ package com.example.loginactivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.google.firebase.events.Event;
+
 import java.util.LinkedList;
 
-public abstract class User {
+public class User {
     private String userId;
     private String firstName;
     private String lastName;

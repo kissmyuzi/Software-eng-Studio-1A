@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spUserType = (Spinner) findViewById(R.id.spUserType);
         etCharityOrg = (EditText) findViewById(R.id.etCharityOrg);
 
+        btnRegister.setOnClickListener(this);
+        tvSignIn.setOnClickListener(this);
     }
 
     private void sendEmailVerification() {

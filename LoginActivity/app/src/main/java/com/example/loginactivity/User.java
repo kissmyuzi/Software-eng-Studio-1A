@@ -29,6 +29,7 @@ public class User {
         this.password = password;
         this.userType = userType;
         this.charityOrg = charityOrg;
+        this.rating = "";
         uploadHistory = new LinkedList<Note>();
         eventHistory = new LinkedList<Event>();
         eventAttending = new LinkedList<Event>();

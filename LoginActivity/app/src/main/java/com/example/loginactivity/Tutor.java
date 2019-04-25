@@ -1,17 +1,15 @@
 package com.example.loginactivity;
 
-import java.util.List;
+import java.util.LinkedList;
 
 public class Tutor extends User {
     private boolean certified;
-    private List<Event> eventHosting;
+    private LinkedList<Event> eventHosting;
 
-
-
-    public Tutor(boolean certified) {
-        super();
+    public Tutor(String userId, String firstName, String lastName, String emailAddress, String password, String userType, String charityOrg, boolean certified) {
+        super(userId, firstName, lastName, emailAddress, password, userType, charityOrg);
         this.certified = certified;
-        eventHosting = new LinkedList<Event>();
+        eventHosting = new LinkedList<>();
     }
 
     public boolean getCertified() { return certified; }

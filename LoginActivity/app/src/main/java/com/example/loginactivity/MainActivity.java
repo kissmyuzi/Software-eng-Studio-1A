@@ -2,8 +2,7 @@ package com.example.loginactivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         spUserType = (Spinner) findViewById(R.id.spUserType);
         etCharityOrg = (EditText) findViewById(R.id.etCharityOrg);
 
+        btnRegister.setOnClickListener(this);
+        tvSignIn.setOnClickListener(this);
     }
 
     private void sendEmailVerification() {

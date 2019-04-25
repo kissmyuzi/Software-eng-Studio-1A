@@ -1,5 +1,6 @@
 package com.example.loginactivity;
 
+<<<<<<< HEAD
         import android.app.ProgressDialog;
         import android.content.Intent;
         import android.graphics.Color;
@@ -26,20 +27,35 @@ public class Event {
     private String eventId;
     private String userId;
     private String eventIcon;
+=======
+
+public class Event {
+    private String eventId;
+    private String userIcon;
+    private String eventIcon; //change data type when possible
+>>>>>>> master
     private String eventName;
     private String location;
     private String date;
 
+<<<<<<< HEAD
     public Event(String eventId, String userId, String eventIcon, String eventName,
                  String location, String date) {
         this.eventId = eventId;
         this.userId = userId;
+=======
+
+    public Event(String eventId, String userIcon, String eventIcon, String eventName, String location, String date) {
+        this.eventId = eventId;
+        this.userIcon = userIcon;
+>>>>>>> master
         this.eventIcon = eventIcon;
         this.eventName = eventName;
         this.location = location;
         this.date = date;
     }
 
+<<<<<<< HEAD
     public String eventId() {
         return eventId;
     }
@@ -61,3 +77,29 @@ public class Event {
 
 }
 
+=======
+    public String getEventId() {
+        return eventId;
+    }
+
+    public String getUserIcon() {
+        return userIcon;
+    }
+
+    public String getEventIcon() {
+        return eventIcon;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getDate() {
+        return date;
+    }
+}
+>>>>>>> master

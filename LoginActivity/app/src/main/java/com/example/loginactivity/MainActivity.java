@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "RegisterActivity";
+    private static final String ayyLmao = "RegisterActivity";
 
 
     private Button btnRegister;

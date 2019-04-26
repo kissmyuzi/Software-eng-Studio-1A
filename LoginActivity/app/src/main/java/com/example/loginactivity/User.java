@@ -3,7 +3,7 @@ package com.example.loginactivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.google.firebase.events.Event;
+//import com.google.firebase.events.Event;
 
 import java.util.LinkedList;
 
@@ -33,6 +33,8 @@ public class User {
         uploadHistory = new LinkedList<Note>();
         eventHistory = new LinkedList<Event>();
         eventAttending = new LinkedList<Event>();
+        eventAttending.add(new Event("1234", "1234", "1234", "Event 1", "Sydney", "19/04/20"));
+        eventAttending.add(new Event("123", "1234", "1234", "Event 2", "Darwin", "19/04/20"));
     }
 
     public String getUserId() {

@@ -167,9 +167,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (task.isSuccessful()) {
                             //Sign in success, update UI with the signed-in
                             FirebaseUser userAuth = mAuth.getCurrentUser();
-
+                            String spUTData = spUserType.getSelectedItem().toString();
                             id = userAuth.getUid();
-                            user = new User(id, firstName, lastName, emailAddress, password, userType, charityOrg);
+                            if (spUTData.equals("Student")) { //if the person is a student, make them a user
+                                user = new User(id, firstName, lastName, emailAddress, password, userType, charityOrg);
+                            }
+                            else if (spUTData.equals("Tutor")) { //or if they are a tutor, make them a tutor
+                                user = new Tutor(id, firstName, lastName, emailAddress, password, userType, charityOrg, true);
+                            }
                             mDatabase.child(id).setValue(user);
                             progressDialog.dismiss();
                             sendEmailVerification();
@@ -188,6 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view == btnRegister) {
             registerUser();
+            startActivity(new Intent(MainActivity.this, StudentDashboardActivity.class));
         }
 
         if (view == tvSignIn) {

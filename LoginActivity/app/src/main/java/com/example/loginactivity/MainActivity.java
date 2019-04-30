@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); //hIDING nAVIGATION bAR
-
+        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); //hIDING nAVIGATION bAR
 
         progressDialog = new ProgressDialog(this);
 
@@ -67,14 +66,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mDatabase = FirebaseDatabase.getInstance().getReference("users");
 
-        btnRegister = (Button) findViewById(R.id.btnRegister);
-        etEmail = (EditText) findViewById(R.id.etEmail);
-        etPassword = (EditText) findViewById(R.id.etPassword);
-        tvSignIn = (TextView) findViewById(R.id.tvSignin);
-        etFirstName = (EditText) findViewById(R.id.etFirstName);
-        etLastName = (EditText) findViewById(R.id.etLastName);
-        spUserType = (Spinner) findViewById(R.id.spUserType);
-        etCharityOrg = (EditText) findViewById(R.id.etCharityOrg);
+        btnRegister = findViewById(R.id.btnRegister);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
+        tvSignIn = findViewById(R.id.tvSignin);
+        etFirstName = findViewById(R.id.etFirstName);
+        etLastName = findViewById(R.id.etLastName);
+        spUserType = findViewById(R.id.spUserType);
+        etCharityOrg = findViewById(R.id.etCharityOrg);
 
         btnRegister.setOnClickListener(this);
         tvSignIn.setOnClickListener(this);
@@ -124,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        if (!emailAddress.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")) {
+        if (!emailAddress.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+))")) {
             Toast.makeText(this, "Please enter your email in correct format", Toast.LENGTH_SHORT).show();
             etEmail.requestFocus();
             return;
@@ -186,9 +185,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
-
     @Override
-
     public void onClick(View view) {
 
         if (view == btnRegister) {
@@ -198,8 +195,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view == tvSignIn) {
             startActivity(new Intent(this, LoginActivity.class));
+            overridePendingTransition(0, 0);                                        //Remove activity transition
         }
     }
+/*
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -207,11 +206,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             getWindow().getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            //  | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN                               This Line Hides the status bar 1/2
+                        //  | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN                               This Line Hides the status bar 1/2
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            // | View.SYSTEM_UI_FLAG_FULLSCREEN                                      This Line Hides the status bar 2/2
+                        // | View.SYSTEM_UI_FLAG_FULLSCREEN                                      This Line Hides the status bar 2/2
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
-
+*/
 }

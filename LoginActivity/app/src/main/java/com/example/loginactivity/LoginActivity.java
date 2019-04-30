@@ -47,11 +47,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mDatabase = FirebaseDatabase.getInstance().getReference("users");
             progressDialog = new ProgressDialog(this);
 
-            etEmailAddress = (EditText) findViewById(R.id.etEmail);
-            etPassword = (EditText) findViewById(R.id.etPassword);
-            btnSignIn = (Button) findViewById(R.id.btnSignIn);
-            tvSignUp = (TextView) findViewById(R.id.tvSignUp);
-            tvResetPassword = (TextView) findViewById(R.id.tvResetPassword);
+            etEmailAddress = findViewById(R.id.etEmail);
+            etPassword = findViewById(R.id.etPassword);
+            btnSignIn = findViewById(R.id.btnSignIn);
+            tvSignUp = findViewById(R.id.tvSignUp);
+            tvResetPassword = findViewById(R.id.tvResetPassword);
 
             btnSignIn.setOnClickListener(this);
             tvSignUp.setOnClickListener(this);
@@ -147,6 +147,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(view == tvSignUp) {
             finish();
+            overridePendingTransition(0, 0);                                        //Remove activity transition
             startActivity(new Intent(this,MainActivity.class));
         }
     }

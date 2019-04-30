@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,10 +24,14 @@ public class AdaptorEvent extends RecyclerView.Adapter<AdaptorEvent.MyViewHolder
     private ArrayList<Event> mDataset;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
-        public MyViewHolder(TextView v) {
+        public TextView eventName;
+        public TextView eventLocation;
+        public TextView eventDate;
+        public MyViewHolder(GridLayout v) {
             super(v);
-            textView = v;
+            eventName = v.findViewById(R.id.tvEventName);
+            eventLocation = v.findViewById(R.id.tvEventLocation);
+            eventDate = v.findViewById(R.id.tvEventDate);
         }
     }
 
@@ -38,14 +43,16 @@ public class AdaptorEvent extends RecyclerView.Adapter<AdaptorEvent.MyViewHolder
     public AdaptorEvent.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Log.d(TAG, "onCreateViewHolder");
         //LinearLayout view = (LinearLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list, parent, false);
-        TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list, parent, false);
-        MyViewHolder vh = new MyViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_list, parent, false);
+        MyViewHolder vh = new MyViewHolder((GridLayout) v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.textView.setText(mDataset.get(position).getEventName());
+        holder.eventName.setText(mDataset.get(position).getEventName());
+        holder.eventLocation.setText(mDataset.get(position).getLocation());
+        holder.eventDate.setText(mDataset.get(position).getDate());
     }
 
     @Override

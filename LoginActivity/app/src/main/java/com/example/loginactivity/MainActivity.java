@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); //hIDING nAVIGATION bAR
-
+        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); //hIDING nAVIGATION bAR
 
         progressDialog = new ProgressDialog(this);
 
@@ -186,7 +185,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
-
     @Override
     public void onClick(View view) {
 
@@ -200,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             overridePendingTransition(0, 0);                                        //Remove activity transition
         }
     }
+/*
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -213,4 +212,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
+*/
 }

@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             tvSignUp.setOnClickListener(this);
             tvResetPassword.setOnClickListener(this);
         }
+
     public void checkEmailVerification() {
         FirebaseUser firebaseUser = mAuth.getInstance().getCurrentUser();
         Boolean emailFlag = firebaseUser.isEmailVerified();
@@ -64,6 +65,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(emailFlag) {
             mDatabase.child(id).addValueEventListener(new ValueEventListener() {
+
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Map<String, Object> user = (Map<String, Object>) dataSnapshot.getValue();
@@ -88,6 +90,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mAuth.signOut();
         }
     }
+
     private void userLogin(){
         String emailAddress = etEmailAddress.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
@@ -151,6 +154,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this,MainActivity.class));
         }
     }
+/*
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -164,4 +168,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         }
     }
-    }
+  */
+}

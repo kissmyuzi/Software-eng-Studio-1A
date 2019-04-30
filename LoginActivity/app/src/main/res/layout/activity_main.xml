@@ -1,117 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginRight="15dp"
+        android:contentDescription="@string/bookshelf_logo"
+        app:srcCompat="@drawable/logobookshelf" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@color/colorPrimary">
+
+        <LinearLayout
+         android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="15dp"
-            android:contentDescription="@string/bookshelf_logo"
-            app:srcCompat="@drawable/logobookshelf" />
+            android:orientation="vertical">
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/first_name"
+                android:inputType="text" tools:targetApi="26"/>
 
-        <EditText
-            android:importantForAutofill="no"
-            android:id="@+id/etFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="15dp"
-            android:hint="@string/first_name"
-            android:inputType="text" tools:targetApi="26"/>
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/last_name"
+                android:inputType="text" tools:targetApi="26"/>
 
-        <EditText
-            android:importantForAutofill="no"
-            android:id="@+id/etLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:hint="@string/last_name"
-            android:inputType="text" tools:targetApi="26"/>
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/email_address"
+                android:inputType="textEmailAddress"
+                tools:targetApi="26"/>
 
-        <EditText
-            android:importantForAutofill="no"
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:hint="@string/email_address"
-            android:inputType="textEmailAddress"
-            tools:targetApi="26"/>
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                tools:targetApi="26"/>
 
-        <EditText
-            android:importantForAutofill="no"
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:hint="@string/password"
-            android:inputType="textPassword"
-            tools:targetApi="26"/>
+            <Spinner
+                android:id="@+id/spUserType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:entries="@array/userType" />
 
-        <Spinner
-            android:id="@+id/spUserType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:entries="@array/userType" />
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etCharityOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/charity_organisation"
+                android:inputType="text"
+                tools:targetApi="26"/>
 
-        <EditText
-            android:importantForAutofill="no"
-            android:id="@+id/etCharityOrg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:hint="@string/charity_organisation"
-            android:inputType="text"
-            tools:targetApi="26"/>
-
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="15dp"
-            android:background="@color/colorPrimary"
-            android:soundEffectsEnabled="false"
-            android:text="@string/register_user"
-            android:textColor="@android:color/white" />
-
-        <TextView
-            android:id="@+id/tvSignin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:text="@string/already_registered_sign_in_here"
-            android:textAlignment="center" />
-
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/btn_round"
+                android:soundEffectsEnabled="false"
+                android:elevation="4dp"
+                android:text="@string/register_user"
+                android:textColor="@drawable/btn_textcolor_pressed" />
 
 
+            <TextView
+                android:id="@+id/tvSignin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/already_registered_sign_in_here"
+                android:textAlignment="center" />
+         </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
+
+</LinearLayout>

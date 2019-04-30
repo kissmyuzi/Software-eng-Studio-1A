@@ -13,12 +13,12 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="register_user">Register User</string>
-    <string name="already_registered_sign_in_here">Already Registered? Sign in here.</string>
-    <string name="signup">Don\'t Have an Account? Sign up Here.</string>
+    <string name="already_registered_sign_in_here"><u>Already Registered? Sign in here.</u></string>
+    <string name="signup"><u>Don\'t Have an Account? Sign up Here.</u></string>
     <string name="charity_organisation">Charity Organisation</string>
     <string name="password">Password</string>
     <string name="email_address">Email Address</string>
     <string name="bookshelf_logo">bookshelf_logo</string>
     <string name="login">LOGIN</string>
-    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgot_password"><u>Forgot Password?</u></string>
 </resources>

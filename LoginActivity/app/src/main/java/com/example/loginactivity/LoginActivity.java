@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
     public void checkEmailVerification() {
+        startActivity(new Intent(LoginActivity.this, StudentDashboardActivity.class));
         FirebaseUser firebaseUser = mAuth.getInstance().getCurrentUser();
         Boolean emailFlag = firebaseUser.isEmailVerified();
         id = mAuth.getCurrentUser().getUid();
@@ -69,12 +70,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Map<String, Object> user = (Map<String, Object>) dataSnapshot.getValue();
+
                     String userType = (String) user.get("userType");
-                    if(userType.equals("student")) {
-                   //     startActivity(new Intent(LoginActivity.this, UserActivty.class));
+                    if(userType.equals("Student")) {
+                        startActivity(new Intent(LoginActivity.this, StudentDashboardActivity.class));
                     }
                     else {
-                   //     startActivity(new Intent(LoginActivity.this, tutorActivity.class));
+                       startActivity(new Intent(LoginActivity.this, StudentDashboardActivity.class));
                     }
                 }
 
@@ -141,6 +143,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == btnSignIn) {
             userLogin();
+          //  overridePendingTransition(0, 0);                                        //Remove activity transition
         }
 
         if (view == tvResetPassword) {
@@ -150,7 +153,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(view == tvSignUp) {
             finish();
-            overridePendingTransition(0, 0);                                        //Remove activity transition
             startActivity(new Intent(this,MainActivity.class));
         }
     }

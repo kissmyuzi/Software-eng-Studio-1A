@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), UserActivity.class));
+            startActivity(new Intent(getApplicationContext(), StudentDashboardActivity.class));
         }
 
         mDatabase = FirebaseDatabase.getInstance().getReference("users");
@@ -190,12 +190,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (view == btnRegister) {
             registerUser();
-            startActivity(new Intent(MainActivity.this, StudentDashboardActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
 
         if (view == tvSignIn) {
             startActivity(new Intent(this, LoginActivity.class));
-            overridePendingTransition(0, 0);                                        //Remove activity transition
+           overridePendingTransition(0, 0);                                        //Remove activity transition
         }
     }
 /*

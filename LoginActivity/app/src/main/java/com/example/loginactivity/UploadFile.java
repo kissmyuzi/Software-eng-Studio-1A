@@ -105,10 +105,7 @@ public class UploadFile extends AppCompatActivity {
                         reference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful())
-                                    Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
-                                else
-                                    Toast.makeText(UploadFile.this, "File has failed to upload.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -116,7 +113,7 @@ public class UploadFile extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(UploadFile.this, "THIS IS A TEST", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UploadFile.this, "File has failed to upload.", Toast.LENGTH_SHORT).show();
             }
 
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

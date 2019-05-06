@@ -37,7 +37,6 @@
         android:layout_height="match_parent"
         android:layout_row="0"
         android:layout_column="4"
-        android:gravity="right"
         android:text="eventDate"
         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 

@@ -116,7 +116,7 @@ public class UploadFile extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(UploadFile.this, "File has failed to upload.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UploadFile.this, "THIS IS A TEST", Toast.LENGTH_SHORT).show();
             }
 
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

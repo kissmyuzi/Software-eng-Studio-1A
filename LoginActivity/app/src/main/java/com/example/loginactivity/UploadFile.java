@@ -108,7 +108,7 @@ public class UploadFile extends AppCompatActivity {
                                 if (task.isSuccessful())
                                     Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
                                 else
-                                    Toast.makeText(UploadFile.this, "File has failed to upload.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }

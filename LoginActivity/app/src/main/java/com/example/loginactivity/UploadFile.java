@@ -105,7 +105,7 @@ public class UploadFile extends AppCompatActivity {
                         reference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }

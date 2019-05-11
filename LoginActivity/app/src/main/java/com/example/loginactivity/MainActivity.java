@@ -86,12 +86,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(MainActivity.this, "Successfully Registered, Please check your email address for verfication email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Successfully registered, please check your email address for verification email", Toast.LENGTH_SHORT).show();
                         mAuth.signOut();
                         finish();
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     } else {
-                        Toast.makeText(MainActivity.this, "Something error with the email verification, Please Try again later", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Something went wrong with the email verification, please try again later", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

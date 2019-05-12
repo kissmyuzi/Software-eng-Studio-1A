@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Check if the user is signed in, if the user is signed in
         //Then re-direct the user to Main page
         mAuth = FirebaseAuth.getInstance();
-        if (mAuth.getCurrentUser() != null) {
-            finish();
-            startActivity(new Intent(getApplicationContext(), StudentDashboardActivity.class));
-        }
+//        if (mAuth.getCurrentUser() != null) {
+//            finish();
+//            startActivity(new Intent(getApplicationContext(), StudentDashboardActivity.class));
+//        }
 
         mDatabase = FirebaseDatabase.getInstance().getReference("users");
 

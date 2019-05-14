@@ -21,4 +21,9 @@
     <string name="bookshelf_logo">bookshelf_logo</string>
     <string name="login">LOGIN</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
+    <string name="home_nav">Home</string>
+    <string name="search_nav">Search</string>
+    <string name="profile_nav">Profile</string>
+    <string name="event_nav">Events</string>
+
 </resources>

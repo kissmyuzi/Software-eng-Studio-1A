@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import com.google.android.gms.common.internal.SignInButtonImpl;
 
+import com.google.android.gms.common.internal.SignInButtonImpl;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -23,6 +24,11 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
     private Button searchBtn;
     private Button profileBtn;
     private Button eventBtn;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 
 
     private ArrayList<Event> events = new ArrayList<>();

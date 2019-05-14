@@ -20,8 +20,8 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
     private ArrayList<Event> events = new ArrayList<>();
 
     private void popList(ArrayList<Event> events) { //just to replace user data for now
-        events.add(new Event("1234", "1234", "1234", "A Crash Course On Year 8 Mathematics", "Redfern, 261-265 Chalmers St", "05/07/19"));
-        events.add(new Event("123", "1234", "1234", "The Crucible: A Technical Analysis", "Surry Hills, 56-60 Albion St", "25/08/19"));
+        events.add(new Event("1234", "1234", "1234", "A Crash Course On Year 8 Mathematics", "Redfern, 261-265 Chalmers St", "05/07/19", "hello"));
+        events.add(new Event("123", "1234", "1234", "The Crucible: A Technical Analysis", "Surry Hills, 56-60 Albion St", "25/08/19", "hello"));
     }
 
     @Override

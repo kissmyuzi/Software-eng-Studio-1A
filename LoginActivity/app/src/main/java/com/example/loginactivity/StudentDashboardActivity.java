@@ -8,8 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import com.google.android.gms.common.internal.SignInButtonImpl;
-
-import com.google.android.gms.common.internal.SignInButtonImpl;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

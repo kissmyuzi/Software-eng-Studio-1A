@@ -7,34 +7,37 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/searchBtn"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="SEARCH"
+        android:text="@string/search_nav"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button4" />
+        app:layout_constraintEnd_toStartOf="@+id/profileBtn"
+        android:onClick="searchBtn"/>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/profileBtn"
         android:layout_width="89dp"
         android:layout_height="72dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
-        android:text="profile"
+        android:text="@string/profile_nav"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5" />
+        app:layout_constraintEnd_toStartOf="@+id/eventBtn"
+        android:onClick="profileBtn"/>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/eventBtn"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Event"
+        android:text="@string/event_nav"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="eventBtn"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvEventAttending"
@@ -91,15 +94,16 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/homeBtn"
         android:layout_width="83dp"
         android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Home"
+        android:text="@string/home_nav"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/searchBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="homeBtn"/>
 
 </android.support.constraint.ConstraintLayout>

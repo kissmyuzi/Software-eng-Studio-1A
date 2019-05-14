@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.common.internal.SignInButtonImpl;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -18,6 +19,12 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Button btnUpload;
+    private Button homeBtn;
+    private Button searchBtn;
+    private Button profileBtn;
+    private Button eventBtn;
+
+
 
 
     private ArrayList<Event> events = new ArrayList<>();
@@ -48,5 +55,22 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         if (view == btnUpload) {
             startActivity(new Intent(StudentDashboardActivity.this, UploadFile.class));
         }
+    }
+
+    public void homeBtn(View view) {
+        startActivity(new Intent(getApplicationContext(),StudentDashboardActivity.class));
+    }
+
+    public void searchBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), searchActivity.class));
+    }
+
+
+    public void profileBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), UserActivity.class));
+    }
+
+    public void eventBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), Event.class));
     }
 }

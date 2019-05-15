@@ -46,4 +46,6 @@ public class Event {
     public String getDate() {
         return date;
     }
+
+
 }

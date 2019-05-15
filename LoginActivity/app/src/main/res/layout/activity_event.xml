@@ -20,7 +20,8 @@
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#2196F3"
-        android:textSize="28sp" />
+        android:layout_marginTop="10dp"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/tvEventLocation"

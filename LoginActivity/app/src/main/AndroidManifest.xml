@@ -39,6 +39,8 @@
         <activity android:name=".TutorDashboardActivity"/>
         <activity android:name=".UploadFile"/>
         <activity android:name=".EventActivity"/>
+        <activity android:name=".EventsAttendingActivity"/>
+        <activity android:name=".AddEventActivity"/>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false"/>

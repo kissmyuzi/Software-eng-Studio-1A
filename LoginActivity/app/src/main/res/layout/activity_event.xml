@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -55,7 +58,7 @@
         android:clickable="true"
         android:enabled="true"
         android:layout_height="200dp"
-        android:apiKey="AIzaSyBqsS7oHerDIIvhcZs2tHxlNNDQ79MI64A"/>
+        />
 
     <Button
         android:id="@+id/btnRegister"
@@ -63,9 +66,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:background="#03A9F4"
         android:text="Register"
         android:textColor="#F5EFEF" />
 
 
 </LinearLayout>
+</ScrollView>

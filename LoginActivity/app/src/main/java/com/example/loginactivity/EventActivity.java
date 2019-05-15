@@ -6,10 +6,13 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -28,6 +31,7 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
     private TextView location;
     private String temp;
     private MapView mapView;
+    private GoogleMap map;
     public Button btnRegister;
 
     @Override
@@ -37,6 +41,7 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
         Bundle extras = getIntent().getExtras();
 
         mapView = (MapView) findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
 
@@ -73,10 +78,17 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
     }
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
         LatLng location = getLocationFromAddress(temp);
-        googleMap.addMarker(new MarkerOptions().position(location).title("Event Location"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+        map.addMarker(new MarkerOptions().position(location).title("Event Location"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(location));
+        map.animateCamera(CameraUpdateFactory.zoomTo(16));
+    }
+
+    @Override
+    public void onResume() {
         mapView.onResume();
+        super.onResume();
     }
 
 }

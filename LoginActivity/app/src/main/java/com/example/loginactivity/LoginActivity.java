@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         startActivity(new Intent(LoginActivity.this, StudentDashboardActivity.class));
                     }
                     else {
-                       startActivity(new Intent(LoginActivity.this, StudentDashboardActivity.class));
+                       startActivity(new Intent(LoginActivity.this, TutorDashboardActivity.class));
                     }
                 }
 

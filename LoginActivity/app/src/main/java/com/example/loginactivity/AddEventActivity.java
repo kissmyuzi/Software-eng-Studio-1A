@@ -70,6 +70,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             }
             else {
                 EventStorage.addEvent(name, date, location, description, time);
+                UserStorage.addEvent(name, date, location, description, time);
                 startActivity(new Intent(AddEventActivity.this, EventsAttendingActivity.class));
             }
         }

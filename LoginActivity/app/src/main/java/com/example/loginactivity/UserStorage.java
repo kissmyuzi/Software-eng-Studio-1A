@@ -56,7 +56,7 @@ public class UserStorage { //idea is to be as static as possible
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return true;
     }
 
 }

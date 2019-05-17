@@ -43,6 +43,15 @@
         android:textColor="#000000" />
 
     <TextView
+        android:id="@+id/tvEventTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:text="eventTime"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000000" />
+
+    <TextView
         android:id="@+id/tvEventDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

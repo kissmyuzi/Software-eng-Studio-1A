@@ -29,6 +29,7 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
     private TextView date;
     private TextView description;
     private TextView location;
+    private TextView time;
     private String temp;
     private MapView mapView;
     private GoogleMap map;
@@ -47,6 +48,7 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
 
         name = findViewById(R.id.tvEventName);
         date = findViewById(R.id.tvEventDate);
+        time = findViewById(R.id.tvEventTime);
         description = findViewById(R.id.tvEventDescription);
         btnRegister = findViewById(R.id.btnRegister);
         location = findViewById(R.id.tvEventLocation);
@@ -54,6 +56,7 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
         if (extras != null) {
             name.setText(extras.getString("eventName"));
             date.setText(extras.getString("eventDate"));
+            time.setText(extras.getString("eventTime"));
             description.setText(extras.getString("eventDescription"));
             location.setText(extras.getString("eventLocation"));
         }

@@ -33,8 +33,8 @@ public class User {
         uploadHistory = new LinkedList<Note>();
         eventHistory = new LinkedList<Event>();
         eventAttending = new LinkedList<Event>();
-        eventAttending.add(new Event("1234", "1234", "1234", "Event 1", "Sydney", "19/04/20", "hello"));
-        eventAttending.add(new Event("123", "1234", "1234", "Event 2", "Darwin", "19/04/20", "hello"));
+        //eventAttending.add(new Event("1234", "1234", "1234", "Event 1", "Sydney", "19/04/20", "hello"));
+        //eventAttending.add(new Event("123", "1234", "1234", "Event 2", "Darwin", "19/04/20", "hello"));
     }
 
     public String getUserId() {

@@ -1,9 +1,16 @@
 package com.example.loginactivity;
 
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class UserStorage { //idea is to be as static as possible
     public static ArrayList<Event> events = new ArrayList<>();
+    public static ArrayList<Event> eventHistory = new ArrayList<>();
 
     private UserStorage() {}
 
@@ -26,12 +33,28 @@ public class UserStorage { //idea is to be as static as possible
     }
 
     public static void addEvent(String name, String date, String location, String description, String time) {
-        events.add(new Event("1234", "1234", "blank", name, location, date, description, time));
+        if (dateCheck(date)) events.add(new Event("1234", "1234", "blank", name, location, date, description, time));
+        else eventHistory.add(new Event("1234", "1234", "blank", name, location, date, description, time));
+
     }
 
     public static boolean compareEvent(String name) {
         for (Event item: getEvents()) {
             if (item.getEventName().equals(name)) return true;
+        }
+        return false;
+    }
+
+    public static boolean dateCheck(String eventDate)  {
+        Date date = Calendar.getInstance().getTime();
+        DateFormat dateFormat = new SimpleDateFormat("dd/mm/yy");
+        String strDate = dateFormat.format(date);
+        try {
+            Date current = dateFormat.parse(strDate);
+            Date event = dateFormat.parse(eventDate);
+            return event.after(current);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }

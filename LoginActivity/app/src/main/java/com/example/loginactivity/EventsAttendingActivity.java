@@ -1,12 +1,15 @@
 package com.example.loginactivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -15,6 +18,8 @@ public class EventsAttendingActivity extends AppCompatActivity implements View.O
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton btnAddEvent;
+    private ImageButton homeBtn;
+    private TextView tvAllEvents;
 
     private ArrayList<Event> events = new ArrayList<>();
     private ArrayList<Event> storage = EventStorage.getEvents();
@@ -40,6 +45,10 @@ public class EventsAttendingActivity extends AppCompatActivity implements View.O
         btnAddEvent.setOnClickListener(this);
         mAdapter = new AdaptorEvent(events);
         recyclerView.setAdapter(mAdapter);
+
+        tvAllEvents= (TextView) findViewById(R.id.tvAllEvents);
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/BadBlocks");
+        tvAllEvents.setTypeface(myCustomFont);
     }
 
     @Override
@@ -47,5 +56,9 @@ public class EventsAttendingActivity extends AppCompatActivity implements View.O
         if (v == btnAddEvent) {
             startActivity(new Intent(EventsAttendingActivity.this, AddEventActivity.class));
         }
+    }
+
+    public void homeBtn(View view) {
+        startActivity(new Intent(getApplicationContext(),StudentDashboardActivity.class));
     }
 }

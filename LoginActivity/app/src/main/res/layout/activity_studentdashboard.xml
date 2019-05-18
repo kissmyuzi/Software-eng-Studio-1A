@@ -4,111 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="25dp">
+    tools:layout_editor_absoluteY="25dp"
+    android:clipToPadding="false">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvEventTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/searchBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="72dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="searchBtn"
-            android:text="@string/search_nav"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/profileBtn" />
-
-        <Button
-            android:id="@+id/profileBtn"
-            android:layout_width="89dp"
-            android:layout_height="72dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="profileBtn"
-            android:text="@string/profile_nav"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/eventBtn" />
-        <Button
-            android:id="@+id/homeBtn"
-            android:layout_width="83dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="homeBtn"
-            android:text="@string/home_nav"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/searchBtn"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/eventBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="72dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="eventBtn"
-            android:text="@string/event_nav"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </LinearLayout>
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="11dp"
+        android:layout_marginTop="10dp"
+        android:text="Upcoming Events"
+        android:textColor="@color/colorPrimary"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvEventAttending"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvEventTitle"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnUpload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="352dp"
-        android:layout_marginRight="352dp"
-        android:layout_marginBottom="8dp"
-        android:text="Upcoming Events"
-        android:textColor="#2196F3"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/rvEventAttending"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        app:fabSize="normal"
+        android:src="@drawable/ic_note_add_black_24dp"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:borderWidth="0dp"
+        app:elevation="6dp"/>
 
-    <Button
-        android:id="@+id/btnUpload"
-        android:layout_width="422dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="-1dp"
-        android:layout_marginLeft="-1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="84dp"
-        android:background="@color/colorPrimary"
-        android:text="UPLOAD FILES"
-        android:textAllCaps="false"
-        android:textColor="@android:color/background_light"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/tableRow2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvEventAttending"
-        app:layout_constraintVertical_bias="1.0" />
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="0dp"
+            android:layout_height="63dp"
+            android:layout_weight="1"
+            android:onClick="homeBtn"
+            android:background="#0AAAD9"
+            android:text="@string/home_nav"
+            android:src="@drawable/ic_home_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/profileBtn"
+            android:layout_width="0dp"
+            android:layout_height="63dp"
+            android:layout_weight="1"
+            android:onClick="profileBtn"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_person_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/eventBtn"
+            android:layout_width="0dp"
+            android:layout_height="63dp"
+            android:layout_weight="1"
+            android:onClick="eventBtn"
+            android:background="@color/colorPrimary"
+            android:text="@string/event_nav"
+            android:src="@drawable/ic_event_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/searchBtn"
+            android:layout_width="0dp"
+            android:layout_height="63dp"
+            android:layout_weight="1"
+            android:onClick="searchBtn"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_search_black_24dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

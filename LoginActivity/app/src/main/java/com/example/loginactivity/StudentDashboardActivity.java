@@ -1,12 +1,18 @@
 package com.example.loginactivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
 import com.google.android.gms.common.internal.SignInButtonImpl;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,11 +25,13 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private Button btnUpload;
-    private Button homeBtn;
-    private Button searchBtn;
-    private Button profileBtn;
-    private Button eventBtn;
+    private FloatingActionButton btnUpload;
+    private ImageButton homeBtn;
+    private ImageButton searchBtn;
+    private ImageButton profileBtn;
+    private ImageButton eventBtn;
+    private TextView tvEventTitle;
+
 
     private ArrayList<Event> events = new ArrayList<>();
 
@@ -52,7 +60,7 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_studentdashboard);
-        recyclerView = (RecyclerView) findViewById(R.id.rvEventAttending);
+        recyclerView = findViewById(R.id.rvEventAttending);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -64,6 +72,11 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         eventBtn.setOnClickListener(this);
         mAdapter = new AdaptorEvent(events);
         recyclerView.setAdapter(mAdapter);
+
+        tvEventTitle= (TextView) findViewById(R.id.tvEventTitle);
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/BadBlocks");
+        tvEventTitle.setTypeface(myCustomFont);
+
     }
 
     @Override
@@ -91,5 +104,6 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
 
     public void eventBtn(View view) {
         startActivity(new Intent(getApplicationContext(), EventsAttendingActivity.class));
+        finish();
     }
 }

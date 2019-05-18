@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class UploadFile extends AppCompatActivity {
     Button selectFile, uploadFile;
+    ImageButton backBtn;
     TextView notificationFile;
     Uri pdfUri;
 
@@ -150,11 +152,18 @@ public class UploadFile extends AppCompatActivity {
 
         if (requestCode == 86 && resultCode == RESULT_OK && data != null) {
             pdfUri = data.getData();
-            notificationFile.setText("A file is selected: " + data.getData().getLastPathSegment());
+            notificationFile.setText("File " + '\u0022' + pdfUri.getLastPathSegment() + '\u0022' + " Is Selected");
+
+            uploadFile.setEnabled(true);
         }
         else {
             Toast.makeText(UploadFile.this,"Please select a file.", Toast.LENGTH_SHORT).show();
+            uploadFile.setEnabled(false);
         }
+    }
+
+    public void backBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), StudentDashboardActivity.class));
     }
 }
 

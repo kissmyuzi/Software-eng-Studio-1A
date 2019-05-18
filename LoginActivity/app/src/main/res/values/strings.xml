@@ -25,5 +25,6 @@
     <string name="search_nav">Search</string>
     <string name="profile_nav">Profile</string>
     <string name="event_nav">Events</string>
+    <string name="add_event">Submit Event</string>
 
 </resources>

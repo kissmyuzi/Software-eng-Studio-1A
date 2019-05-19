@@ -63,7 +63,7 @@
         <ImageButton
             android:id="@+id/homeBtn"
             android:layout_width="0dp"
-            android:layout_height="63dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:onClick="homeBtn"
             android:background="#0AAAD9"
@@ -73,7 +73,7 @@
         <ImageButton
             android:id="@+id/profileBtn"
             android:layout_width="0dp"
-            android:layout_height="63dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:onClick="profileBtn"
             android:background="@color/colorPrimary"
@@ -82,7 +82,7 @@
         <ImageButton
             android:id="@+id/eventBtn"
             android:layout_width="0dp"
-            android:layout_height="63dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:onClick="eventBtn"
             android:background="@color/colorPrimary"
@@ -92,7 +92,7 @@
         <ImageButton
             android:id="@+id/searchBtn"
             android:layout_width="0dp"
-            android:layout_height="63dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:onClick="searchBtn"
             android:background="@color/colorPrimary"

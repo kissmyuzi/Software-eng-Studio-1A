@@ -75,4 +75,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
             }
         }
     }
+    public void backBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), EventsAttendingActivity.class));
+    }
 }

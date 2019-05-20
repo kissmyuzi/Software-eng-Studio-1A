@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< HEAD
     <Button
         android:id="@+id/uploadFile"
         android:layout_width="match_parent"
@@ -39,10 +40,31 @@
         android:gravity="center"
         android:text="No file is selected. Please tap the SELECT FILE button to begin."
         android:textSize="20dp" />
+=======
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:tint="@color/colorPrimary"
+        android:backgroundTint="#FAFAFA"
+        android:onClick="backBtn"/>
 
-    <Button
-        android:id="@+id/selectFile"
+    <TextView
+        android:id="@+id/notificationFile"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="@string/no_file"
+        android:textSize="35sp" />
+>>>>>>> f931b8e55b8c4fc44c5fb1aeb3f1d88b39b43bc1
+
+    <LinearLayout
+        android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="88dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -94,5 +116,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="fetchFiles" />
+=======
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/selectFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/select_file"
+            android:background="@drawable/btn_round"
+            android:textColor="@drawable/btn_textcolor_pressed"/>
+
+        <Button
+            android:id="@+id/uploadFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/upload_file"
+            android:enabled="false"
+            android:background="@drawable/btn_disabled"
+            android:textColor="@drawable/btn_textcolor_pressed" />
+>>>>>>> f931b8e55b8c4fc44c5fb1aeb3f1d88b39b43bc1
+
+    </LinearLayout>
 </RelativeLayout>

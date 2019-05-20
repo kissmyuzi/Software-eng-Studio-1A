@@ -15,6 +15,8 @@ public class TutorDashboardActivity extends AppCompatActivity implements View.On
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Button btnUpload;
+    private Button searchBtn;
+
 
 
     private ArrayList<Event> events = new ArrayList<>();

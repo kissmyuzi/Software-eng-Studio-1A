@@ -67,8 +67,7 @@
         android:layout_width="match_parent"
         android:clickable="true"
         android:enabled="true"
-        android:layout_height="200dp"
-        />
+        android:layout_height="200dp" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -80,7 +79,5 @@
         android:background="#03A9F4"
         android:text="Register"
         android:textColor="#F5EFEF" />
-
-
 </LinearLayout>
 </ScrollView>

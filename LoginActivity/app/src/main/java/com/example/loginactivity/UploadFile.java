@@ -119,6 +119,7 @@ public class UploadFile extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(UploadFile.this, "File has failed to upload.", Toast.LENGTH_SHORT).show();
+                progressDialog.cancel();
             }
 
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -127,6 +128,10 @@ public class UploadFile extends AppCompatActivity {
 
                 int currentProgress = (int) (100*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
                 progressDialog.setProgress(currentProgress);
+
+                if (currentProgress == 100) {
+                    progressDialog.cancel();
+                }
             }
         });
     }

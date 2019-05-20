@@ -36,13 +36,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class UploadFile extends AppCompatActivity {
-<<<<<<< HEAD
+
     Button selectFile, uploadFile, fetch;
-=======
-    Button selectFile, uploadFile;
     ImageButton backBtn;
->>>>>>> f931b8e55b8c4fc44c5fb1aeb3f1d88b39b43bc1
     TextView notificationFile;
+    ImageButton searchBtn;
     Uri pdfUri;
 
     EditText inputFileName;
@@ -56,14 +54,6 @@ public class UploadFile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
-
-        fetch = findViewById(R.id.fetchFiles);
-        fetch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(UploadFile.this, RecyclerViewActivity.class));
-            }
-        });
 
         inputFileName = (EditText) findViewById(R.id.inputFileName);
 

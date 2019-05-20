@@ -3,44 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
-    <Button
-        android:id="@+id/uploadFile"
-        android:layout_width="match_parent"
-        android:layout_height="89dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="455dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="114dp"
-        android:text="UPLOAD FILE"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/notificationFile"
-        android:layout_width="328dp"
-        android:layout_height="83dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:layout_marginBottom="367dp"
-        android:gravity="center"
-        android:text="No file is selected. Please tap the SELECT FILE button to begin."
-        android:textSize="20dp" />
-=======
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
@@ -60,26 +22,6 @@
         android:gravity="center"
         android:text="@string/no_file"
         android:textSize="35sp" />
->>>>>>> f931b8e55b8c4fc44c5fb1aeb3f1d88b39b43bc1
-
-    <LinearLayout
-        android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="88dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="341dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="230dp"
-        android:text="SELECT FILE"
-        android:textSize="20dp" />
 
     <EditText
         android:id="@+id/inputFileName"
@@ -111,12 +53,8 @@
         android:layout_marginBottom="482dp"
         android:text="Please include the subject and year (e.g. Mathematics 2 unit notes 2016)" />
 
-    <Button
-        android:id="@+id/fetchFiles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="fetchFiles" />
-=======
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -149,7 +87,6 @@
             android:enabled="false"
             android:background="@drawable/btn_disabled"
             android:textColor="@drawable/btn_textcolor_pressed" />
->>>>>>> f931b8e55b8c4fc44c5fb1aeb3f1d88b39b43bc1
 
     </LinearLayout>
 </RelativeLayout>

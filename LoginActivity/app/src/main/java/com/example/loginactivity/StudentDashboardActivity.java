@@ -73,29 +73,26 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         mAdapter = new AdaptorEvent(events);
         recyclerView.setAdapter(mAdapter);
 
-<<<<<<< HEAD
-        searchBtn = findViewById(R.id.fetchFiles);
+        searchBtn = findViewById(R.id.searchBtn);
         searchBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(StudentDashboardActivity.this, RecyclerViewActivity.class));
             }
         });
-=======
+
         tvEventTitle= (TextView) findViewById(R.id.tvEventTitle);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/BadBlocks");
         tvEventTitle.setTypeface(myCustomFont);
-
->>>>>>> f931b8e55b8c4fc44c5fb1aeb3f1d88b39b43bc1
     }
 
     @Override
     public void onClick(View view) {
 
         if (view == btnUpload) {
-            startActivity(new Intent(StudentDashboardActivity.this, UploadFile.class));
-        }
-        else if (view == eventBtn) {
+            startActivity(new Intent(getApplicationContext(), UploadFile.class));
+        } else if (view == eventBtn) {
             startActivity(new Intent(StudentDashboardActivity.this, EventsAttendingActivity.class));
         }
     }

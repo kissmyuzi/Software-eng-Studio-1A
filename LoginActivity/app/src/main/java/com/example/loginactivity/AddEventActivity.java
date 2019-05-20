@@ -16,6 +16,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
     private EditText etDate;
     private EditText etLocation;
     private EditText etDescription;
+    private EditText etTime;
     private Button btnSubmit;
 
 
@@ -26,6 +27,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_addevent);
         etName = findViewById(R.id.etName);
         etDate = findViewById(R.id.etDate);
+        etTime = findViewById(R.id.etTime);
         etLocation = findViewById(R.id.etLocation);
         etDescription = findViewById(R.id.etDescription);
         btnSubmit = findViewById(R.id.btnSubmit);
@@ -37,6 +39,7 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
         String name = etName.getText().toString().trim();
         String date = etDate.getText().toString().trim();
         String location = etLocation.getText().toString().trim();
+        String time = etTime.getText().toString().trim();
         String description = etDescription.getText().toString().trim();
 
         if (v == btnSubmit) {
@@ -50,6 +53,11 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
                 etDate.requestFocus();
                 return;
             }
+            else if (TextUtils.isEmpty(time) || time.length() != 5) {
+                Toast.makeText(this,"Please enter a time in 24 hour format", Toast.LENGTH_LONG).show();
+                etTime.requestFocus();
+                return;
+            }
             else if (TextUtils.isEmpty(location) && location.length() < 10) {
                 Toast.makeText(this,"Please enter an address", Toast.LENGTH_SHORT).show();
                 etLocation.requestFocus();
@@ -61,7 +69,8 @@ public class AddEventActivity extends AppCompatActivity implements View.OnClickL
                 return;
             }
             else {
-                EventStorage.addEvent(name, date, location, description);
+                EventStorage.addEvent(name, date, location, description, time);
+                UserStorage.addEvent(name, date, location, description, time);
                 startActivity(new Intent(AddEventActivity.this, EventsAttendingActivity.class));
             }
         }

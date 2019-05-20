@@ -7,15 +7,14 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/searchBtn"
+        android:id="@+id/fetchFiles"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/search_nav"
+        android:text="SEARCH"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/profileBtn"
-        android:onClick="searchBtn"/>
+        app:layout_constraintEnd_toStartOf="@+id/profileBtn" />
 
     <Button
         android:id="@+id/profileBtn"

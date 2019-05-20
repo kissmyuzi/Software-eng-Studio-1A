@@ -35,9 +35,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class UploadFile extends AppCompatActivity {
-    Button selectFile, uploadFile;
+    Button selectFile, uploadFile, fetch;
     TextView notificationFile;
     Uri pdfUri;
+
+    EditText inputFileName;
 
     FirebaseStorage storage;
     FirebaseDatabase database;
@@ -48,6 +50,16 @@ public class UploadFile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
+
+        fetch = findViewById(R.id.fetchFiles);
+        fetch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UploadFile.this, RecyclerViewActivity.class));
+            }
+        });
+
+        inputFileName = (EditText) findViewById(R.id.inputFileName);
 
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -93,22 +105,25 @@ public class UploadFile extends AppCompatActivity {
         progressDialog.setProgress(0);
         progressDialog.show();
 
-        final String fileName = System.currentTimeMillis()+"";
+        final String fileName = inputFileName.getText().toString()+".pdf";
+        final String fileName1 = inputFileName.getText().toString();
+
+
         StorageReference storageReference = storage.getReference();
 
-        storageReference.child("Uploads").child(fileName).putFile(pdfUri)
+        storageReference.child("Uploads").child(fileName1).putFile(pdfUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         String url = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                         DatabaseReference reference = database.getReference();
-                        reference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        reference.child(fileName1).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful())
                                     Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
                                 else
-                                    Toast.makeText(UploadFile.this, "File has been successfully uploaded.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(UploadFile.this, "File has failed to upload.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -157,4 +172,3 @@ public class UploadFile extends AppCompatActivity {
         }
     }
 }
-

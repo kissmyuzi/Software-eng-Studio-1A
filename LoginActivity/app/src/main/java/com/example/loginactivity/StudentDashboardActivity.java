@@ -61,10 +61,19 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         eventBtn.setOnClickListener(this);
         mAdapter = new AdaptorEvent(events);
         recyclerView.setAdapter(mAdapter);
+
+        searchBtn = findViewById(R.id.fetchFiles);
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StudentDashboardActivity.this, RecyclerViewActivity.class));
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
+
         if (view == btnUpload) {
             startActivity(new Intent(StudentDashboardActivity.this, UploadFile.class));
         }

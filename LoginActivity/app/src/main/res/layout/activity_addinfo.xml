@@ -24,9 +24,31 @@
         android:scrollbarThumbVertical="@color/colorPrimary">
 
         <LinearLayout
-         android:layout_width="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/first_name"
+                android:inputType="text" tools:targetApi="26"/>
+
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/last_name"
+                android:inputType="text" tools:targetApi="26"/>
 
             <EditText
                 android:importantForAutofill="no"
@@ -52,6 +74,27 @@
                 android:inputType="textPassword"
                 tools:targetApi="26"/>
 
+            <Spinner
+                android:id="@+id/spUserType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:entries="@array/userType" />
+
+            <EditText
+                android:importantForAutofill="no"
+                android:id="@+id/etCharityOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="15dp"
+                android:hint="@string/charity_organisation"
+                android:inputType="text"
+                tools:targetApi="26"/>
+
             <Button
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
@@ -60,8 +103,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/btn_round"
-                android:elevation="4dp"
                 android:soundEffectsEnabled="false"
+                android:elevation="4dp"
                 android:text="@string/register_user"
                 android:textColor="@drawable/btn_textcolor_pressed" />
 
@@ -76,7 +119,7 @@
                 android:layout_marginBottom="15dp"
                 android:text="@string/already_registered_sign_in_here"
                 android:textAlignment="center" />
-         </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 

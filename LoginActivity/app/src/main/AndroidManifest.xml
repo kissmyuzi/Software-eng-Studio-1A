@@ -35,6 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".AddInfoActivity"/>
         <activity android:name=".StudentDashboardActivity"/>
         <activity android:name=".TutorDashboardActivity"/>
         <activity android:name=".UploadFile"/>

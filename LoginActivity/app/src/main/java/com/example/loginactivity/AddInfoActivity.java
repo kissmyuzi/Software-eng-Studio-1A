@@ -50,7 +50,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_addinfo);
 
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); //hIDING nAVIGATION bAR
 
@@ -190,27 +190,13 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
 
         if (view == btnRegister) {
             registerUser();
-            startActivity(new Intent(AddInfoActivity.this, LoginActivity.class));
+            startActivity(new Intent(AddInfoActivity.this, StudentDashboardActivity.class));
         }
 
         if (view == tvSignIn) {
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, StudentDashboardActivity.class));
             overridePendingTransition(0, 0);                                        //Remove activity transition
         }
     }
-/*
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if(hasFocus) {
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        //  | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN                               This Line Hides the status bar 1/2
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        // | View.SYSTEM_UI_FLAG_FULLSCREEN                                      This Line Hides the status bar 2/2
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        }
-    }
-*/
+
 }

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextEmail = (EditText) findViewById(R.id.etEmail);
         editTextPassword = (EditText) findViewById(R.id.etPassword);
 
-        textViewSignin = (TextView) findViewById(R.id.btnSignIn);
+        textViewSignin = (TextView) findViewById(R.id.tvSignin);
 
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         if(view == textViewSignin) {
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
         }
     }
 }

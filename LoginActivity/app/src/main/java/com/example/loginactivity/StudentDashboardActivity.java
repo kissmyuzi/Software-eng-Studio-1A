@@ -19,6 +19,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
+
 
 import com.google.android.gms.common.internal.SignInButtonImpl;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,6 +40,7 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
     private ImageButton profileBtn;
     private ImageButton eventBtn;
     private TextView tvEventTitle;
+    private Button add_info;
 
 
     private ArrayList<Event> events = new ArrayList<>();
@@ -84,6 +87,16 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         mAdapter = new AdaptorEvent(events);
         recyclerView.setAdapter(mAdapter);
 
+        add_info = findViewById(R.id.add_info);
+        add_info.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StudentDashboardActivity.this, AddInfoActivity.class));
+            }
+        });
+
+
         searchBtn = findViewById(R.id.searchBtn);
         searchBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -93,7 +106,7 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
             }
         });
 
-        tvEventTitle= (TextView) findViewById(R.id.tvEventTitle);
+        tvEventTitle= findViewById(R.id.tvEventTitle);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/BadBlocks");
         tvEventTitle.setTypeface(myCustomFont);
     }
@@ -107,6 +120,8 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
             startActivity(new Intent(StudentDashboardActivity.this, EventsAttendingActivity.class));
         }
     }
+
+
 
     public void homeBtn(View view) {
         startActivity(new Intent(getApplicationContext(),StudentDashboardActivity.class));

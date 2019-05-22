@@ -53,7 +53,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
                 android:hint="Date"
-                android:inputType="date" tools:targetApi="26"/>
+                android:inputType="date|text" tools:targetApi="26"/>
 
             <EditText
                 android:importantForAutofill="no"
@@ -64,7 +64,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
                 android:hint="Time"
-                android:inputType="time" tools:targetApi="26"/>
+                android:inputType="time|text" tools:targetApi="26"/>
 
             <EditText
                 android:importantForAutofill="no"

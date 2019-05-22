@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 //import com.google.firebase.events.Event;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class User {
@@ -14,10 +15,13 @@ public class User {
     private String emailAddress;
     private String password;
     private String userType;
+    private String description;
     private String charityOrg;
     private String rating;
     private LinkedList<Note> uploadHistory;
-    private LinkedList<Event> eventHistory;
+    private ArrayList<Event> eventHistory;
+
+
     private LinkedList<Event> eventAttending;
 
 
@@ -26,12 +30,13 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
+        this.description = "This user has not created a description for themselves yet.";
         this.password = password;
         this.userType = userType;
         this.charityOrg = charityOrg;
         this.rating = "";
         uploadHistory = new LinkedList<Note>();
-        eventHistory = new LinkedList<Event>();
+        eventHistory = new ArrayList<Event>();
         eventAttending = new LinkedList<Event>();
         //eventAttending.add(new Event("1234", "1234", "1234", "Event 1", "Sydney", "19/04/20", "hello"));
         //eventAttending.add(new Event("123", "1234", "1234", "Event 2", "Darwin", "19/04/20", "hello"));
@@ -69,7 +74,19 @@ public class User {
 
     public LinkedList<Note> getUploadHistory() { return uploadHistory; }
 
-    public LinkedList<Event> getEventHistory() { return eventHistory; }
+    public ArrayList<Event> getEventHistory() { return eventHistory; }
 
     public LinkedList<Event> getEventAttending() { return eventAttending; }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setEvent(Event event) {
+        eventHistory.add(event);
+    }
 }

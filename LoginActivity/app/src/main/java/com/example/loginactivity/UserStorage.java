@@ -17,13 +17,11 @@ public class UserStorage { //idea is to be as static as possible
     public static ArrayList<Event> getEvents() {
         ArrayList<Event> temp = new ArrayList<>();
 
-        temp.add(new Event("1234", "1234", "1234", "A Crash Course On Year 8 Mathematics", "Redfern, 261-265 Chalmers St", "05/07/19", "Lorem ipsum dolor sit amet, an per tacimates electram temporibus, in quis amet theophrastus est, vim omnis audire temporibus ea. Ne quas affert epicurei mei. Quo suscipit recteque ad, eu expetenda splendide honestatis quo, no vis epicurei mnesarchum. Omittam conceptam concludaturque nec id, quod suscipiantur nam ea.\n" +
+        temp.add(new Event("1234", "1234", "1234", "A Crash Course On Year 8 Mathematics", "Redfern, 261-265 Chalmers St", "05/07/19", "As a tutor, you need to accept the responsibility for your assignment. Tutees generally come to you with a certain amount of respect for your role. It's important for a tutor to develop a rapport with students who seek assistance. Become familiar with methods for Getting to Know the Student. \n" +
                 "\n" +
-                "Quando minimum omittantur est ad. Agam essent aeterno eu eum. Ei sed tation tibique verterem, ut sit primis deleniti definitionem. No ius enim congue elaboraret, et vim idque mollis.\n" +
+                "Intelligence alone does not indicate success as a tutor; but what kind of person, what kind of student you are does. It takes a certain kind of person to be a good tutor. Some of the characteristics noticeable in good tutors.\n" +
                 "\n" +
-                "An quot solet mei. Ut qui affert praesent, id mel dico solum persius. Essent tacimates ea vel, vel ut fugit exerci conceptam. Qualisque delicatissimi ex qui. Apeirian consetetur eos in, quaeque vocibus forensibus cu per, has in convenire contentiones.\n" +
-                "\n" +
-                "Delenit offendit ea eum, mel vero mundi an. Tibique corpora vix id. Eos cu tamquam dolorum, propriae molestiae cotidieque sit id, quaerendum contentiones an quo. Sed vidit mazim an, te vis idque quidam, ne vim scribentur necessitatibus.", "11:30"));
+                "Tutoring is one of the most beneficial things you can do as a LEARNER. It will teach you more about your subject and about thinking than the typical classroom experience..", "11:30"));
 
         for (Event item: events) {
             temp.add(item);

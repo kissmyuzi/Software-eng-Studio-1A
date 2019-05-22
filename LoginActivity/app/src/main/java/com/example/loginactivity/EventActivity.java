@@ -86,10 +86,12 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
-        LatLng location = getLocationFromAddress(temp);
-        map.addMarker(new MarkerOptions().position(location).title("Event Location"));
-        map.moveCamera(CameraUpdateFactory.newLatLng(location));
-        map.animateCamera(CameraUpdateFactory.zoomTo(16));
+        LatLng locations = getLocationFromAddress(temp);
+        map.addMarker(new MarkerOptions().position(locations).title("Event Location"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(locations));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(locations, 16));
+
+
     }
 
     @Override

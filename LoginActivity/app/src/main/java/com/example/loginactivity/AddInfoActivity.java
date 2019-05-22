@@ -15,12 +15,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class AddInfoActivity extends AppCompatActivity implements View.OnClickListener {
@@ -42,6 +48,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     public FirebaseAuth mAuth;
     public DatabaseReference mDatabase;
 
+    private FirebaseFirestore db;
+
     public String id;
 
     public User user;
@@ -59,6 +67,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         //Check if the user is signed in, if the user is signed in
         //Then re-direct the user to Main page
         mAuth = FirebaseAuth.getInstance();
+
+        // Get instance of firestore to insert user data to
+        db = FirebaseFirestore.getInstance();
 //        if (mAuth.getCurrentUser() != null) {
 //            finish();
 //            startActivity(new Intent(getApplicationContext(), StudentDashboardActivity.class));
@@ -153,37 +164,61 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             etCharityOrg.requestFocus();
             return;
         }
-
+        String message = db.getApp().getName();
+        Toast.makeText(AddInfoActivity.this, message, Toast.LENGTH_SHORT).show();
 
         //If the validation is successful, show registration progress
         progressDialog.setMessage("Registering in Process, Please Wait");
         progressDialog.show();
+        //Sign in success, update UI with the signed-in
+        mAuth.signOut();
+        mAuth.signInWithEmailAndPassword(emailAddress, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                // To store all the info the user inputted
+                Map<String, String> user = new HashMap<>();
+                user.put("firstName", firstName);
+                user.put("lastName", lastName);
+//                user.put("userType", userType);
+                user.put("charityOrg", charityOrg);
 
-        mAuth.createUserWithEmailAndPassword(emailAddress, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //Sign in success, update UI with the signed-in
-                            FirebaseUser userAuth = mAuth.getCurrentUser();
-                            String spUTData = spUserType.getSelectedItem().toString();
-                            id = userAuth.getUid();
-                            if (spUTData.equals("Student")) { //if the person is a student, make them a user
-                                user = new User(id, firstName, lastName, emailAddress, password, userType, charityOrg);
+                // Adds the collected info to the collection called "users"
+                // and into the document named with the UserID, if the document
+                // doesn't exist, a new document will be created.
+                db.collection("users").document("kjlk")
+                        .set(user)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(AddInfoActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                             }
-                            else if (spUTData.equals("Tutor")) { //or if they are a tutor, make them a tutor
-                                user = new Tutor(id, firstName, lastName, emailAddress, password, userType, charityOrg, true);
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                String message = db.getApp().getName();
+                                Toast.makeText(AddInfoActivity.this, message, Toast.LENGTH_SHORT).show();
                             }
-                            mDatabase.child(id).setValue(user);
-                            progressDialog.dismiss();
-                            sendEmailVerification();
-                        } else {
-                            progressDialog.dismiss();
-                            Toast.makeText(AddInfoActivity.this, "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
+                        });
+            }
+        });
+
+
+
+
+
+//        String spUTData = spUserType.getSelectedItem().toString();
+//        id = currentUser.getUid();
+//        if (spUTData.equals("Student")) { //if the person is a student, make them a user
+//            user = new User(id, firstName, lastName, emailAddress, password, userType, charityOrg);
+//        }
+//        else if (spUTData.equals("Tutor")) { //or if they are a tutor, make them a tutor
+//            user = new Tutor(id, firstName, lastName, emailAddress, password, userType, charityOrg, true);
+//        }
+//        mDatabase.child(id).setValue(user);
+//        progressDialog.dismiss();
+//        sendEmailVerification();
+}
 
     @Override
     public void onClick(View view) {

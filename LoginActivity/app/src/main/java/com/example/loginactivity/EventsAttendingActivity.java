@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Checkable;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,6 +25,7 @@ public class EventsAttendingActivity extends AppCompatActivity implements View.O
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private FloatingActionButton btnAddEvent;
+    private ImageButton profileBtn;
     private ImageButton homeBtn;
     private TextView tvAllEvents;
 
@@ -53,6 +55,8 @@ public class EventsAttendingActivity extends AppCompatActivity implements View.O
         popList(events); //garbage until user data can be received
         btnAddEvent = findViewById(R.id.btnAddEvent);
         btnAddEvent.setOnClickListener(this);
+        profileBtn = findViewById(R.id.profileBtn);
+        profileBtn.setOnClickListener(this);
         mAdapter = new AdaptorEvent(events);
         recyclerView.setAdapter(mAdapter);
 
@@ -65,6 +69,10 @@ public class EventsAttendingActivity extends AppCompatActivity implements View.O
     public void onClick(View v) {
         if (v == btnAddEvent) {
             startActivity(new Intent(EventsAttendingActivity.this, AddEventActivity.class));
+        }
+
+        if (v == profileBtn) {
+            startActivity(new Intent(EventsAttendingActivity.this, UserActivity.class));
         }
     }
 

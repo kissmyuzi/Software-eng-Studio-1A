@@ -2,6 +2,9 @@ package com.example.loginactivity;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.card.MaterialCardView;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -40,12 +43,27 @@ public class UserActivity extends AppCompatActivity {
         rvEventHistory.setLayoutManager(layoutManager);
         mAdapter = new AdaptorEvent(user.getEventHistory());
         rvEventHistory.setAdapter(mAdapter);
+        rvEventHistory.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        setCardViewBackgroundToRecyclerView(rvEventHistory);
 
         tvFirstLast.setText(user.getFirstName() + " " + user.getLastName() + "'s Profile");
         tvEmailAddress.setText(user.getEmailAddress());
         tvUserDescription.setText(user.getDescription());
 
+    }
 
-
+    private void setCardViewBackgroundToRecyclerView(RecyclerView recyclerView) {
+        MaterialCardView cardView = new MaterialCardView(this);
+        cardView.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
+        cardView.setUseCompatPadding(true);
+        cardView.setPreventCornerOverlap(false);
+        cardView.setRadius(65);
+        int cardShadow = (int) cardView.getCardElevation();
+        recyclerView.setPadding(cardView.getContentPaddingLeft() + cardShadow,
+                cardView.getContentPaddingTop() + cardShadow + 3,
+                cardView.getContentPaddingRight() + cardShadow,
+                cardView.getContentPaddingBottom() + cardShadow + 3);
+        ViewCompat.setElevation(recyclerView, 8);
+        recyclerView.setBackground(cardView.getBackground());
     }
 }

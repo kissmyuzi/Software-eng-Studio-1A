@@ -24,7 +24,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firestore.v1.Value;
 
+//import java.util.HashMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,11 +48,12 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     private ProgressDialog progressDialog;
 
     public FirebaseAuth mAuth;
-    public DatabaseReference mDatabase;
+    public DatabaseReference mDatabase, mUserRef;
+    public FirebaseUser mUser;
 
     private FirebaseFirestore db;
 
-    public String id;
+    public String id, mUserID, mCurrentUserID;
 
     public User user;
 
@@ -60,64 +63,53 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addinfo);
 
+        //find user
+        mUser = FirebaseAuth.getInstance().getCurrentUser();
+        mUserID = mUser.getUid();
+
+        //Check if the user is signed in, if the user is signed in
+        //Then re-direct the user to Main page
+
+        mAuth = FirebaseAuth.getInstance();
+        mCurrentUserID = mAuth.getCurrentUser().getUid();
+        mUserRef = FirebaseDatabase.getInstance().getReference().child( "Users" ).child(mCurrentUserID);
+
         //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION); //hIDING nAVIGATION bAR
 
         progressDialog = new ProgressDialog(this);
 
-        //Check if the user is signed in, if the user is signed in
-        //Then re-direct the user to Main page
-        mAuth = FirebaseAuth.getInstance();
 
-        // Get instance of firestore to insert user data to
-        db = FirebaseFirestore.getInstance();
-//        if (mAuth.getCurrentUser() != null) {
-//            finish();
-//            startActivity(new Intent(getApplicationContext(), StudentDashboardActivity.class));
-//        }
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("users");
 
-        btnRegister = findViewById(R.id.btnRegister);
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
-        tvSignIn = findViewById(R.id.tvSignin);
+
+        // Adding information EditText
         etFirstName = findViewById(R.id.etFirstName);
         etLastName = findViewById(R.id.etLastName);
-        spUserType = findViewById(R.id.spUserType);
+        //spUserType = findViewById(R.id.spUserType);
         etCharityOrg = findViewById(R.id.etCharityOrg);
 
-        btnRegister.setOnClickListener(this);
-        tvSignIn.setOnClickListener(this);
-    }
-
-    private void sendEmailVerification() {
-        FirebaseUser firebaseUser = mAuth.getInstance().getCurrentUser();
-        if (firebaseUser != null) {
-            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(AddInfoActivity.this, "Successfully registered, please check your email address for verification email", Toast.LENGTH_SHORT).show();
-                        mAuth.signOut();
-                        finish();
-                        startActivity(new Intent(AddInfoActivity.this, LoginActivity.class));
-                    } else {
-                        Toast.makeText(AddInfoActivity.this, "Something went wrong with the email verification, please try again later", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
+        // Save Button
+        btnRegister = findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerUser();
+            }
+        });
     }
 
 
     private void registerUser() {
-        final String emailAddress = etEmail.getText().toString().trim();
-        final String password = etPassword.getText().toString().trim();
         final String firstName = etFirstName.getText().toString().trim();
         final String lastName = etLastName.getText().toString().trim();
-        final String userType = spUserType.getSelectedItem().toString().trim();
+        //final String userType = spUserType.getSelectedItem().toString().trim();
         final String charityOrg = etCharityOrg.getText().toString().trim();
 
+        // Adding to a database map
+
+        HashMap userMap = new HashMap();
+        //HashMap<String, Object> userMap = new HashMap<String, Object>();
 
         //Validation method that ensures that the user has entered email and password to register
         //When the user did not enter anything to the email field
@@ -133,7 +125,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             etLastName.requestFocus();
             return;
         }
-
+/**
         if (!emailAddress.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+))")) {
             Toast.makeText(this, "Please enter your email in correct format", Toast.LENGTH_SHORT).show();
             etEmail.requestFocus();
@@ -158,80 +150,39 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             etPassword.requestFocus();
             return;
         }
-
+**/
         if (TextUtils.isEmpty(charityOrg)) {
             Toast.makeText(this, "Please enter your affiliated charity organisation", Toast.LENGTH_SHORT).show();
             etCharityOrg.requestFocus();
             return;
+        } else {
+
+            userMap.put( "firstName", firstName);
+            userMap.put("lastName",lastName);
+            userMap.put("charityOrg",charityOrg);
         }
-        String message = db.getApp().getName();
-        Toast.makeText(AddInfoActivity.this, message, Toast.LENGTH_SHORT).show();
 
-        //If the validation is successful, show registration progress
-        progressDialog.setMessage("Registering in Process, Please Wait");
-        progressDialog.show();
-        //Sign in success, update UI with the signed-in
-        mAuth.signOut();
-        mAuth.signInWithEmailAndPassword(emailAddress, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+
+        mUserRef.updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
             @Override
-            public void onSuccess(AuthResult authResult) {
-                // To store all the info the user inputted
-                Map<String, String> user = new HashMap<>();
-                user.put("firstName", firstName);
-                user.put("lastName", lastName);
-//                user.put("userType", userType);
-                user.put("charityOrg", charityOrg);
+            public void onComplete(@NonNull Task task) {
+                if (task.isSuccessful()) {
+                    //If the validation is successful, show registration progress
+                    //progressDialog.setMessage("Registering in Process, Please Wait");
+                    //progressDialog.show();
+                    finish();
+                } else {
+                    //String message = task.getException().getMessage();
 
-                // Adds the collected info to the collection called "users"
-                // and into the document named with the UserID, if the document
-                // doesn't exist, a new document will be created.
-                db.collection("users").document("kjlk")
-                        .set(user)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(AddInfoActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                String message = db.getApp().getName();
-                                Toast.makeText(AddInfoActivity.this, message, Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                    //progressDialog.setMessage("Registration Incomplete. Please fill out all boxes.");
+                    //progressDialog.show();
+                }
             }
         });
-
-
-
-
-
-//        String spUTData = spUserType.getSelectedItem().toString();
-//        id = currentUser.getUid();
-//        if (spUTData.equals("Student")) { //if the person is a student, make them a user
-//            user = new User(id, firstName, lastName, emailAddress, password, userType, charityOrg);
-//        }
-//        else if (spUTData.equals("Tutor")) { //or if they are a tutor, make them a tutor
-//            user = new Tutor(id, firstName, lastName, emailAddress, password, userType, charityOrg, true);
-//        }
-//        mDatabase.child(id).setValue(user);
-//        progressDialog.dismiss();
-//        sendEmailVerification();
 }
 
     @Override
     public void onClick(View view) {
-
-        if (view == btnRegister) {
-            registerUser();
-            startActivity(new Intent(AddInfoActivity.this, StudentDashboardActivity.class));
-        }
-
-        if (view == tvSignIn) {
-            startActivity(new Intent(this, StudentDashboardActivity.class));
-            overridePendingTransition(0, 0);                                        //Remove activity transition
-        }
     }
 
 }

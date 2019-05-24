@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             tvSignUp.setOnClickListener(this);
             tvResetPassword.setOnClickListener(this);
         }
-
+/*
     public void checkEmailVerification() {
         startActivity(new Intent(LoginActivity.this, StudentDashboardActivity.class));
         FirebaseUser firebaseUser = mAuth.getInstance().getCurrentUser();
@@ -92,6 +92,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             mAuth.signOut();
         }
     }
+
+    */
 
     private void userLogin(){
         String emailAddress = etEmailAddress.getText().toString().trim();
@@ -133,7 +135,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
 
                         if(task.isSuccessful()){
-                            checkEmailVerification();
+                            Intent intent = new Intent(LoginActivity.this, StudentDashboardActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });

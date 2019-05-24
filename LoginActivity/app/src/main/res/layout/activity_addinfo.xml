@@ -50,30 +50,6 @@
                 android:hint="@string/last_name"
                 android:inputType="text" tools:targetApi="26"/>
 
-            <EditText
-                android:importantForAutofill="no"
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                android:hint="@string/email_address"
-                android:inputType="textEmailAddress"
-                tools:targetApi="26"/>
-
-            <EditText
-                android:importantForAutofill="no"
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                tools:targetApi="26"/>
-
             <Spinner
                 android:id="@+id/spUserType"
                 android:layout_width="match_parent"

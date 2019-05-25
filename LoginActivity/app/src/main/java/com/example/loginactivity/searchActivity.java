@@ -11,24 +11,27 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class searchActivity extends AppCompatActivity {
 
-    ListView pdfListView;
+    ListView pdfList;
+    SearchView mySearchView;
+
     ArrayList<String> pdfFiles;
+    ArrayAdapter<String> adapterSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        pdfListView = (ListView) findViewById(R.id.pdfList);
 
-        pdfFiles = new ArrayList<>();
+        pdfList = (ListView) findViewById(R.id.pdfList);
+        mySearchView = (SearchView) findViewById(R.id.searchView);
+
+        pdfFiles = new ArrayList<String>();
         pdfFiles.add("chemistry notes year 11");
         pdfFiles.add("Economics Notes Year 12");
         pdfFiles.add("English Guide Year 12");
@@ -55,32 +58,31 @@ public class searchActivity extends AppCompatActivity {
             }
         };
 
-        pdfListView.setAdapter(adapter);
+        pdfList.setAdapter(adapter);
 
-        pdfListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        pdfList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                String item = pdfListView.getItemAtPosition(i).toString();
+                String item = pdfList.getItemAtPosition(i).toString();
 
                 Intent start = new Intent(getApplicationContext(), PDFOpener.class);
                 start.putExtra("pdfFileName", item);
                 startActivity(start);
-
-
-
-
             }
         });
 
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
 
-
-
-
-
-
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+        });
     }
-
-
-
 }

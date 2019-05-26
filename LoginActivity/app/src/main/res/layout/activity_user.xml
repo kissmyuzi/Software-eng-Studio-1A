@@ -1,68 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:scrollHorizontally="false"
+        android:text="First Name Last Name"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginTop="11dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+
+    <TextView
+        android:id="@+id/tvEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:text="Email Address"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#4CAF50"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvUserName"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvUserDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="11dp"
+        android:text="User Description"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#020202"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvEventHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="15dp"
+        android:text="Event History"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@id/tvUserDescription"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvEventHistory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".LoginActivity"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="24dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEventHistory"/>
 
-        <TextView
-            android:id="@+id/tvUserName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:scrollHorizontally="false"
-            android:text="First Name Last Name"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#2196F3"
-            android:layout_marginTop="10dp"
-            android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/tvEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="11dp"
-            android:text="Email Address"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="#4CAF50"
-            android:textSize="16sp" />
+    <LinearLayout
+    android:id="@+id/tableRow2"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/tvUserDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="User Description"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#020202"
-            android:textSize="16sp" />
+    <ImageButton
+        android:id="@+id/homeBtn"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:onClick="homeBtn"
+        android:background="@color/colorPrimary"
+        android:text="@string/home_nav"
+        android:src="@drawable/ic_home_black_24dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Event History"
-            android:textAllCaps="false"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#2196F3"
-            android:textSize="18sp" />
+    <ImageButton
+        android:id="@+id/profileBtn"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:onClick="profileBtn"
+        android:background="#0AAAD9"
+        android:src="@drawable/ic_person_black_24dp" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvEventHistory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="24dp"
-            android:background="?android:selectableItemBackgroundBorderless"
-            />
+    <ImageButton
+        android:id="@+id/eventBtn"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:onClick="eventBtn"
+        android:background="@color/colorPrimary"
+        android:text="@string/event_nav"
+        android:src="@drawable/ic_event_black_24dp" />
 
+    <ImageButton
+        android:id="@+id/searchBtn"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:onClick="searchBtn"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/ic_search_black_24dp" />
     </LinearLayout>
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

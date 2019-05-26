@@ -86,6 +86,9 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         eventBtn.setOnClickListener(this);
         mAdapter = new AdaptorEvent(events);
         recyclerView.setAdapter(mAdapter);
+        searchBtn = findViewById(R.id.searchBtn);
+        searchBtn.setOnClickListener(this);
+
 
         add_info = findViewById(R.id.add_info);
         add_info.setOnClickListener(new View.OnClickListener() {
@@ -93,16 +96,6 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(StudentDashboardActivity.this, AddInfoActivity.class));
-            }
-        });
-
-
-        searchBtn = findViewById(R.id.searchBtn);
-        searchBtn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(StudentDashboardActivity.this, RecyclerViewActivity.class));
             }
         });
 
@@ -118,6 +111,8 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
             startActivity(new Intent(getApplicationContext(), UploadFile.class));
         } else if (view == eventBtn) {
             startActivity(new Intent(StudentDashboardActivity.this, EventsAttendingActivity.class));
+        } else if (view == searchBtn) {
+            startActivity(new Intent(getApplicationContext(), searchActivity.class));
         }
     }
 

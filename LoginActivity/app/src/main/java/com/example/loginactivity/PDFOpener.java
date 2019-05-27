@@ -18,7 +18,8 @@ public class PDFOpener extends AppCompatActivity {
         String getItem = getIntent().getStringExtra("pdfFileName");
 
         if(getItem.equals("chemistry notes year 11")) {
-            pdfViewer.fromAsset("chemistry notes year 11.pdf").load();
+            pdfViewer.fromAsset("chemistry notes year 11.pdf").spacing(10).enableDoubletap(true).load();
+
         }
         if(getItem.equals("Economics Notes Year 12")) {
             pdfViewer.fromAsset("Economics Notes Year 12.pdf").load();

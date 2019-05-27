@@ -44,19 +44,19 @@ public class searchActivity extends AppCompatActivity {
         searchBar.setBackgroundResource(R.drawable.bg_white_rounded);
 
         pdfFiles = new ArrayList<String>();
-        pdfFiles.add("chemistry notes year 11");
+        pdfFiles.add("Chemistry Notes Year 11");
         pdfFiles.add("Economics Notes Year 12");
         pdfFiles.add("English Guide Year 12");
-        pdfFiles.add("Fractions and Equations year 10");
+        pdfFiles.add("Fractions and Equations Year 10");
         pdfFiles.add("HSC Handbook");
         pdfFiles.add("Mastering Math Year 12");
-        pdfFiles.add("Math Extension 1 year 12");
-        pdfFiles.add("math fundamentals year 9");
+        pdfFiles.add("Math Extension 1 Year 12");
+        pdfFiles.add("Math Fundamentals Year 9");
         pdfFiles.add("UMAT Sample Questions");
 
-        String[] pdfFiles = {"chemistry notes year 11", "Economics Notes Year 12", "English Guide Year 12",
-                "Fractions and Equations year 10", "HSC Handbook", "Mastering Math Year 12",
-                "Math Extension 1 year 12", "math fundamentals year 9", "UMAT Sample Questions"};
+        String[] pdfFiles = {"Chemistry Notes Year 11", "Economics Notes Year 12", "English Guide Year 12",
+                "Fractions and Equations Year 10", "HSC Handbook", "Mastering Math Year 12",
+                "Math Extension 1 Year 12", "Math Fundamentals year 9", "UMAT Sample Questions"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,pdfFiles) {
 

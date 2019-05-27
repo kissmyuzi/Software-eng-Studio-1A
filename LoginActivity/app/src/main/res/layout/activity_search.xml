@@ -1,20 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_white_rounded"
+        android:clickable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ListView
         android:id="@+id/pdfList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:padding="5dp"
-        android:layout_marginTop="50dp">
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintBottom_toTopOf="@id/tableRow2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <LinearLayout
+        android:id="@+id/tableRow2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/colorPrimary">
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:onClick="homeBtn"
+            android:background="@color/colorPrimary"
+            android:text="@string/home_nav"
+            android:src="@drawable/ic_home_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/profileBtn"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:onClick="profileBtn"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/ic_person_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/eventBtn"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:onClick="eventBtn"
+            android:background="@color/colorPrimary"
+            android:text="@string/event_nav"
+            android:src="@drawable/ic_event_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/searchBtn"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:onClick="searchBtn"
+            android:background="#0AAAD9"
+            android:src="@drawable/ic_search_black_24dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

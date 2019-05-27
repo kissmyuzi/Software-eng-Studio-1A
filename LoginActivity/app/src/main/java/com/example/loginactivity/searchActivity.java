@@ -31,6 +31,18 @@ public class searchActivity extends AppCompatActivity {
         pdfList = (ListView) findViewById(R.id.pdfList);
         mySearchView = (SearchView) findViewById(R.id.searchView);
 
+        int searchFrameId = mySearchView.getContext().getResources().getIdentifier("android:id/search_edit_frame", null, null);
+        View searchFrame = mySearchView.findViewById(searchFrameId);
+        searchFrame.setBackgroundResource(R.drawable.bg_white_rounded);
+
+        int searchPlateId = mySearchView.getContext().getResources().getIdentifier("android:id/search_plate", null, null);
+        View searchPlate = findViewById(searchPlateId);
+        searchPlate.setBackgroundResource(R.drawable.bg_white_rounded);
+
+        int searchBarId = mySearchView.getContext().getResources().getIdentifier("android:id/search_bar", null, null);
+        View searchBar = findViewById(searchBarId);
+        searchBar.setBackgroundResource(R.drawable.bg_white_rounded);
+
         pdfFiles = new ArrayList<String>();
         pdfFiles.add("chemistry notes year 11");
         pdfFiles.add("Economics Notes Year 12");
@@ -84,5 +96,23 @@ public class searchActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void homeBtn(View view) {
+        startActivity(new Intent(getApplicationContext(),StudentDashboardActivity.class));
+    }
+
+    public void searchBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), searchActivity.class));
+    }
+
+
+    public void profileBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), UserActivity.class));
+    }
+
+    public void eventBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), EventsAttendingActivity.class));
+        finish();
     }
 }

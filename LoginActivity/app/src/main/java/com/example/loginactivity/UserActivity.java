@@ -1,5 +1,6 @@
 package com.example.loginactivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.card.MaterialCardView;
@@ -8,12 +9,14 @@ import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 public class UserActivity extends AppCompatActivity {
     private TextView tvFirstLast;
     private TextView tvEmailAddress;
     private TextView tvUserDescription;
+    private TextView tvEventHistory;
     private RecyclerView rvEventHistory;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -32,8 +35,11 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         tvFirstLast = findViewById(R.id.tvUserName);
+        tvEventHistory = findViewById(R.id.tvEventHistory);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/BadBlocks");
         tvFirstLast.setTypeface(myCustomFont);
+        tvEventHistory.setTypeface(myCustomFont);
+
         tvEmailAddress = findViewById(R.id.tvEmailAddress);
         tvUserDescription = findViewById(R.id.tvUserDescription);
         popPage();
@@ -46,10 +52,27 @@ public class UserActivity extends AppCompatActivity {
         rvEventHistory.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         setCardViewBackgroundToRecyclerView(rvEventHistory);
 
-        tvFirstLast.setText(user.getFirstName() + " " + user.getLastName() + "'s Profile");
+        tvFirstLast.setText("Profile: " + user.getFirstName() + " " + user.getLastName());
         tvEmailAddress.setText(user.getEmailAddress());
         tvUserDescription.setText(user.getDescription());
+    }
 
+    public void homeBtn(View view) {
+        startActivity(new Intent(getApplicationContext(),StudentDashboardActivity.class));
+    }
+
+    public void searchBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), searchActivity.class));
+    }
+
+
+    public void profileBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), UserActivity.class));
+    }
+
+    public void eventBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), EventsAttendingActivity.class));
+        finish();
     }
 
     private void setCardViewBackgroundToRecyclerView(RecyclerView recyclerView) {

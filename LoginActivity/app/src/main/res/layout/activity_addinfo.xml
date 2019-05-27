@@ -81,20 +81,8 @@
                 android:background="@drawable/btn_round"
                 android:soundEffectsEnabled="false"
                 android:elevation="4dp"
-                android:text="@string/register_user"
+                android:text="Add Info"
                 android:textColor="@drawable/btn_textcolor_pressed" />
-
-
-            <TextView
-                android:id="@+id/tvSignin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                android:text="@string/already_registered_sign_in_here"
-                android:textAlignment="center" />
         </LinearLayout>
 
     </ScrollView>

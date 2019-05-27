@@ -75,10 +75,6 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-        setCardViewBackgroundToRecyclerView(recyclerView);
-
         popList(events); //garbage until user data can be received
         btnUpload = findViewById(R.id.btnUpload);
         btnUpload.setOnClickListener(this);
@@ -88,6 +84,10 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         recyclerView.setAdapter(mAdapter);
         searchBtn = findViewById(R.id.searchBtn);
         searchBtn.setOnClickListener(this);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        setCardViewBackgroundToRecyclerView(recyclerView);
 
 
         add_info = findViewById(R.id.add_info);

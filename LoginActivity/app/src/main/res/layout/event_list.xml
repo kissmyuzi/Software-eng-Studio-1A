@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,14 +11,20 @@
     android:paddingLeft="8dp"
     android:paddingRight="4dp"
     android:foreground="?android:attr/selectableItemBackground">
-
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_row="0"
+        android:layout_column="1">
     <TextView
+        android:id="@+id/tvEvent"
         android:layout_width="202dp"
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="0"
         android:text="Event"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tvEventName"
@@ -28,7 +35,9 @@
         android:layout_row="1"
         android:text="eventName"
         android:textSize="15sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintTop_toBottomOf="@id/tvEvent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/tvEventLocation"
@@ -40,15 +49,19 @@
         android:text="eventLocation"
         android:textSize="16sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/holo_green_dark" />
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintTop_toBottomOf="@id/tvEventName"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/tvEventDate"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_row="0"
-        android:layout_marginLeft="48dp"
         android:text="eventDate"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
 
 </GridLayout>

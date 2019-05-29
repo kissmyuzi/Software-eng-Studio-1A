@@ -17,11 +17,11 @@ public class UserStorage { //idea is to be as static as possible
     public static ArrayList<Event> getEvents() {
         ArrayList<Event> temp = new ArrayList<>();
 
-        temp.add(new Event("1234", "1234", "1234", "A Crash Course On Year 8 Mathematics", "Redfern, 261-265 Chalmers St", "05/07/19", "As a tutor, you need to accept the responsibility for your assignment. Tutees generally come to you with a certain amount of respect for your role. It's important for a tutor to develop a rapport with students who seek assistance. Become familiar with methods for Getting to Know the Student. \n" +
-                "\n" +
-                "Intelligence alone does not indicate success as a tutor; but what kind of person, what kind of student you are does. It takes a certain kind of person to be a good tutor. Some of the characteristics noticeable in good tutors.\n" +
-                "\n" +
-                "Tutoring is one of the most beneficial things you can do as a LEARNER. It will teach you more about your subject and about thinking than the typical classroom experience..", "11:30"));
+        //temp.add(new Event("1234", "1234", "1234", "A Crash Course On Year 8 Mathematics", "Redfern, 261-265 Chalmers St", "05/07/19", "As a tutor, you need to accept the responsibility for your assignment. Tutees generally come to you with a certain amount of respect for your role. It's important for a tutor to develop a rapport with students who seek assistance. Become familiar with methods for Getting to Know the Student. \n" +
+       //         "\n" +
+        //        "Intelligence alone does not indicate success as a tutor; but what kind of person, what kind of student you are does. It takes a certain kind of person to be a good tutor. Some of the characteristics noticeable in good tutors.\n" +
+       //         "\n" +
+        //        "Tutoring is one of the most beneficial things you can do as a LEARNER. It will teach you more about your subject and about thinking than the typical classroom experience..", "11:30"));
 
         for (Event item: events) {
             temp.add(item);
@@ -30,10 +30,24 @@ public class UserStorage { //idea is to be as static as possible
         return temp;
     }
 
-    public static void addEvent(String name, String date, String location, String description, String time) {
-        if (dateCheck(date)) events.add(new Event("1234", "1234", "blank", name, location, date, description, time));
-        else eventHistory.add(new Event("1234", "1234", "blank", name, location, date, description, time));
+    public static ArrayList<Event> getEventHistory() {
+        ArrayList<Event> temp = new ArrayList<>();
+        return eventHistory;
+    }
 
+    public static void addEvent(String name, String date, String location, String description, String time) {
+        events.add(new Event("1234", "1234", "blank", name, location, date, description, time));
+        //eventHistory.add(new Event("1234", "1234", "blank", name, location, date, description, time));
+
+    }
+
+    public static void removeEvent(String name) {
+        for (Event item: events) {
+            if (item.getEventName().equals(name)) {
+                events.remove(item);
+                break;
+            }
+        }
     }
 
     public static boolean compareEvent(String name) {

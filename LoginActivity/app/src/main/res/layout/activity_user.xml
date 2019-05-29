@@ -36,19 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
-        android:id="@+id/tvUserDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="11dp"
-        android:text="User Description"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#020202"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tvEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView
         android:id="@+id/tvEventHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +46,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorPrimary"
         android:textSize="22sp"
-        app:layout_constraintTop_toBottomOf="@id/tvUserDescription"
+        app:layout_constraintTop_toBottomOf="@id/tvEmailAddress"
         app:layout_constraintStart_toStartOf="parent"/>
 
     <android.support.v7.widget.RecyclerView

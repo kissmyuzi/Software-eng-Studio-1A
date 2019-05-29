@@ -3,6 +3,7 @@ package com.example.loginactivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -36,12 +37,14 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
     private MapView mapView;
     private GoogleMap map;
     public Button btnRegister;
+    private Boolean status;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         Bundle extras = getIntent().getExtras();
+        status = UserStorage.compareEvent(extras.getString("eventName"));
 
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -55,6 +58,11 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
         btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener(this);
         location = findViewById(R.id.tvEventLocation);
+
+        if (status) {
+            btnRegister.setText("Unregister");
+            btnRegister.setBackgroundColor(Color.RED);
+        }
 
         if (extras != null) {
             name.setText(extras.getString("eventName"));
@@ -109,7 +117,9 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
                 startActivity(new Intent(EventActivity.this, StudentDashboardActivity.class));
             }
             else {
-                Toast.makeText(this,"You are already registered for this event", Toast.LENGTH_LONG).show();
+                UserStorage.removeEvent(name.getText().toString().trim());
+                Toast.makeText(this,"You are no longer registered for this event", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(EventActivity.this, StudentDashboardActivity.class));
             }
 
         }

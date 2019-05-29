@@ -41,7 +41,7 @@ public class UserActivity extends AppCompatActivity {
         tvEventHistory.setTypeface(myCustomFont);
 
         tvEmailAddress = findViewById(R.id.tvEmailAddress);
-        tvUserDescription = findViewById(R.id.tvUserDescription);
+        //tvUserDescription = findViewById(R.id.tvUserDescription);
         popPage();
         rvEventHistory = findViewById(R.id.rvEventHistory);
         rvEventHistory.setHasFixedSize(true);
@@ -54,7 +54,7 @@ public class UserActivity extends AppCompatActivity {
 
         tvFirstLast.setText("Profile: " + user.getFirstName() + " " + user.getLastName());
         tvEmailAddress.setText(user.getEmailAddress());
-        tvUserDescription.setText(user.getDescription());
+        //tvUserDescription.setText(user.getDescription());
     }
 
     public void homeBtn(View view) {

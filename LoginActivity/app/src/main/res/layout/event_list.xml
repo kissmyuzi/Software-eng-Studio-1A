@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/parent_layout"
@@ -9,8 +10,8 @@
     android:columnCount="5"
     android:orientation="vertical"
     android:paddingLeft="8dp"
-    android:paddingRight="4dp"
-    android:foreground="?android:attr/selectableItemBackground">
+    android:paddingRight="4dp">
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_row="0"

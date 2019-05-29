@@ -2,18 +2,24 @@ package com.example.loginactivity;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SearchView;
+import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 import java.util.ArrayList;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 
 public class searchActivity extends AppCompatActivity {
 
@@ -31,17 +37,13 @@ public class searchActivity extends AppCompatActivity {
         pdfList = (ListView) findViewById(R.id.pdfList);
         mySearchView = (SearchView) findViewById(R.id.searchView);
 
-        int searchFrameId = mySearchView.getContext().getResources().getIdentifier("android:id/search_edit_frame", null, null);
-        View searchFrame = mySearchView.findViewById(searchFrameId);
-        searchFrame.setBackgroundResource(R.drawable.bg_white_rounded);
+        EditText editText;
+        editText = (EditText) mySearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        editText.setTextColor(Color.WHITE);
+        editText.setHintTextColor(Color.LTGRAY);
 
-        int searchPlateId = mySearchView.getContext().getResources().getIdentifier("android:id/search_plate", null, null);
-        View searchPlate = findViewById(searchPlateId);
-        searchPlate.setBackgroundResource(R.drawable.bg_white_rounded);
-
-        int searchBarId = mySearchView.getContext().getResources().getIdentifier("android:id/search_bar", null, null);
-        View searchBar = findViewById(searchBarId);
-        searchBar.setBackgroundResource(R.drawable.bg_white_rounded);
+        ImageView searchClose = (ImageView) mySearchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
+        searchClose.setImageResource(R.drawable.ic_close_black_24dp);
 
         pdfFiles = new ArrayList<String>();
         pdfFiles.add("Chemistry Notes Year 11");

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    android:fillViewport="true"
     android:orientation="vertical">
 
     <TextView
@@ -15,69 +12,101 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:scrollHorizontally="false"
         android:text="eventName"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#2196F3"
-        android:layout_marginTop="10dp"
-        android:textSize="22sp" />
-
-    <TextView
-        android:id="@+id/tvEventLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="11dp"
-        android:text="eventLocation"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="#4CAF50"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tvEventDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="11dp"
-        android:text="eventDate"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="#000000" />
-
-    <TextView
-        android:id="@+id/tvEventTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="11dp"
-        android:text="eventTime"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="#000000" />
-
-    <TextView
-        android:id="@+id/tvEventDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="eventDescription"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#020202"
-        android:textSize="16sp" />
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:clickable="true"
         android:enabled="true"
-        android:layout_height="200dp" />
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/btnRegister"
+        />
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="102dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="#03A9F4"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btn_round"
         android:text="Register"
-        android:textColor="#F5EFEF" />
-</LinearLayout>
-</ScrollView>
+        android:textColor="#F5EFEF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/mapView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:context=".LoginActivity"
+        tools:layout_editor_absoluteX="0dp"
+        android:scrollbarThumbVertical="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvEventLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:text="eventLocation"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#4CAF50"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvEventDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:text="eventDate"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tvEventTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:text="eventTime"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tvEventDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="15dp"
+                android:text="eventDescription"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#020202"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

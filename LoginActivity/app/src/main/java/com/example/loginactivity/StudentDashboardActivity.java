@@ -89,7 +89,6 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         setCardViewBackgroundToRecyclerView(recyclerView);
 
-
         add_info = findViewById(R.id.add_info);
         add_info.setOnClickListener(new View.OnClickListener() {
 

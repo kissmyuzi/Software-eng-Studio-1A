@@ -1,6 +1,7 @@
 package com.example.loginactivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.card.MaterialCardView;
@@ -17,8 +18,10 @@ import android.widget.Button;
 import android.widget.Checkable;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
+import android.content.res.TypedArray;
+import android.content.Context;
 import java.util.ArrayList;
+
 
 public class EventsAttendingActivity extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView recyclerView;
@@ -80,13 +83,28 @@ public class EventsAttendingActivity extends AppCompatActivity implements View.O
         startActivity(new Intent(getApplicationContext(),StudentDashboardActivity.class));
     }
 
+    public void searchBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), searchActivity.class));
+    }
+
+
+    public void profileBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), UserActivity.class));
+    }
+
+    public void eventBtn(View view) {
+        startActivity(new Intent(getApplicationContext(), EventsAttendingActivity.class));
+        finish();
+    }
+
     private void setCardViewBackgroundToRecyclerView(RecyclerView recyclerView) {
+
         MaterialCardView cardView = new MaterialCardView(this);
         cardView.setCardBackgroundColor(ContextCompat.getColor(this, R.color.colorWhite));
         cardView.setUseCompatPadding(true);
         cardView.setPreventCornerOverlap(false);
         cardView.setRadius(65);
-
+        cardView.isClickable();
         int cardShadow = (int) cardView.getCardElevation();
         recyclerView.setPadding(cardView.getContentPaddingLeft() + cardShadow,
                 cardView.getContentPaddingTop() + cardShadow + 3,

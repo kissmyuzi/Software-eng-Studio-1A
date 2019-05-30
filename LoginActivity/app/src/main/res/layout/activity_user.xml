@@ -21,7 +21,22 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"/>
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@id/add_info"/>
+
+    <ImageButton
+        android:id="@+id/add_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/ic_more_vert_black_24dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Edit Info"
+        android:textColor="@drawable/btn_textcolor_pressed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvEmailAddress"
@@ -55,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="8dp"
         android:background="?android:selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,7 +95,8 @@
         android:onClick="homeBtn"
         android:background="@color/colorPrimary"
         android:text="@string/home_nav"
-        android:src="@drawable/ic_home_black_24dp" />
+        android:src="@drawable/ic_home_black_24dp"
+        android:foreground="?attr/selectableItemBackground"/>
 
     <ImageButton
         android:id="@+id/profileBtn"
@@ -89,7 +105,8 @@
         android:layout_weight="1"
         android:onClick="profileBtn"
         android:background="#0AAAD9"
-        android:src="@drawable/ic_person_black_24dp" />
+        android:src="@drawable/ic_person_black_24dp"
+        android:foreground="?attr/selectableItemBackground"/>
 
     <ImageButton
         android:id="@+id/eventBtn"
@@ -99,7 +116,8 @@
         android:onClick="eventBtn"
         android:background="@color/colorPrimary"
         android:text="@string/event_nav"
-        android:src="@drawable/ic_event_black_24dp" />
+        android:src="@drawable/ic_event_black_24dp"
+        android:foreground="?attr/selectableItemBackground"/>
 
     <ImageButton
         android:id="@+id/searchBtn"
@@ -108,6 +126,7 @@
         android:layout_weight="1"
         android:onClick="searchBtn"
         android:background="@color/colorPrimary"
-        android:src="@drawable/ic_search_black_24dp" />
+        android:src="@drawable/ic_search_black_24dp"
+        android:foreground="?attr/selectableItemBackground"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -51,7 +51,8 @@
             android:onClick="homeBtn"
             android:background="@color/colorPrimary"
             android:text="@string/home_nav"
-            android:src="@drawable/ic_home_black_24dp" />
+            android:src="@drawable/ic_home_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <ImageButton
             android:id="@+id/profileBtn"
@@ -60,7 +61,8 @@
             android:layout_weight="1"
             android:onClick="profileBtn"
             android:background="@color/colorPrimary"
-            android:src="@drawable/ic_person_black_24dp" />
+            android:src="@drawable/ic_person_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <ImageButton
             android:id="@+id/eventBtn"
@@ -70,7 +72,8 @@
             android:onClick="eventBtn"
             android:background="@color/colorPrimary"
             android:text="@string/event_nav"
-            android:src="@drawable/ic_event_black_24dp" />
+            android:src="@drawable/ic_event_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <ImageButton
             android:id="@+id/searchBtn"
@@ -79,7 +82,8 @@
             android:layout_weight="1"
             android:onClick="searchBtn"
             android:background="#0AAAD9"
-            android:src="@drawable/ic_search_black_24dp" />
+            android:src="@drawable/ic_search_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

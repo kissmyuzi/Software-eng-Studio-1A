@@ -10,9 +10,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.PopupMenu;
+import android.widget.ImageButton;
+import android.widget.Toast;
+import android.view.MenuItem;
 
-public class UserActivity extends AppCompatActivity {
+
+public class UserActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
     private TextView tvFirstLast;
     private TextView tvEmailAddress;
     private TextView tvUserDescription;
@@ -21,6 +27,7 @@ public class UserActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private User user;
+    private ImageButton add_info;
 
     private void popPage() {
         user = new User("1234", "Mark", "Benedict", "markBenedict@gmail.com", "blabla12345", "Student", "UTS");
@@ -39,6 +46,17 @@ public class UserActivity extends AppCompatActivity {
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/BadBlocks");
         tvFirstLast.setTypeface(myCustomFont);
         tvEventHistory.setTypeface(myCustomFont);
+
+        ImageButton btn = findViewById(R.id.add_info);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(UserActivity.this, v);
+                popup.setOnMenuItemClickListener(UserActivity.this);
+                popup.inflate(R.menu.popup_menu);
+                popup.show();
+            }
+        });
 
         tvEmailAddress = findViewById(R.id.tvEmailAddress);
         //tvUserDescription = findViewById(R.id.tvUserDescription);
@@ -88,5 +106,18 @@ public class UserActivity extends AppCompatActivity {
                 cardView.getContentPaddingBottom() + cardShadow + 3);
         ViewCompat.setElevation(recyclerView, 8);
         recyclerView.setBackground(cardView.getBackground());
+    }
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.edit_info:
+                startActivity(new Intent(UserActivity.this, AddInfoActivity.class));
+                return true;
+            case R.id.logout:
+                startActivity(new Intent(UserActivity.this, LoginActivity.class));
+                return true;
+            default:
+                return false;
+        }
     }
 }

@@ -35,6 +35,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/crdVWPH"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/uploadedFiles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Register for events in the events page"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </android.support.v7.widget.CardView>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btnUpload"
         android:layout_width="wrap_content"
@@ -68,7 +94,8 @@
             android:onClick="homeBtn"
             android:background="#0AAAD9"
             android:text="@string/home_nav"
-            android:src="@drawable/ic_home_black_24dp" />
+            android:src="@drawable/ic_home_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <ImageButton
             android:id="@+id/profileBtn"
@@ -77,7 +104,8 @@
             android:layout_weight="1"
             android:onClick="profileBtn"
             android:background="@color/colorPrimary"
-            android:src="@drawable/ic_person_black_24dp" />
+            android:src="@drawable/ic_person_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <ImageButton
             android:id="@+id/eventBtn"
@@ -87,7 +115,8 @@
             android:onClick="eventBtn"
             android:background="@color/colorPrimary"
             android:text="@string/event_nav"
-            android:src="@drawable/ic_event_black_24dp" />
+            android:src="@drawable/ic_event_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <ImageButton
             android:id="@+id/searchBtn"
@@ -96,24 +125,8 @@
             android:layout_weight="1"
             android:onClick="searchBtn"
             android:background="@color/colorPrimary"
-            android:src="@drawable/ic_search_black_24dp" />
+            android:src="@drawable/ic_search_black_24dp"
+            android:foreground="?attr/selectableItemBackground"/>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/add_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Add Info"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.996"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

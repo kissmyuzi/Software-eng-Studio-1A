@@ -40,7 +40,7 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
     private ImageButton profileBtn;
     private ImageButton eventBtn;
     private TextView tvEventTitle;
-    private Button add_info;
+    private CardView crdVPH;
 
 
     private ArrayList<Event> events = new ArrayList<>();
@@ -74,6 +74,9 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+        crdVPH = findViewById(R.id.crdVWPH);
+        //crdVPH.setVisibility(View.INVISIBLE);
+
 
         popList(events); //garbage until user data can be received
         btnUpload = findViewById(R.id.btnUpload);
@@ -88,15 +91,6 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         setCardViewBackgroundToRecyclerView(recyclerView);
-
-        add_info = findViewById(R.id.add_info);
-        add_info.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(StudentDashboardActivity.this, AddInfoActivity.class));
-            }
-        });
 
         tvEventTitle= findViewById(R.id.tvEventTitle);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/BadBlocks");
@@ -141,6 +135,7 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         cardView.setUseCompatPadding(true);
         cardView.setPreventCornerOverlap(false);
         cardView.setRadius(65);
+
         int cardShadow = (int) cardView.getCardElevation();
         recyclerView.setPadding(cardView.getContentPaddingLeft() + cardShadow,
                 cardView.getContentPaddingTop() + cardShadow + 3,
@@ -148,5 +143,12 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
                 cardView.getContentPaddingBottom() + cardShadow + 3);
         ViewCompat.setElevation(recyclerView, 8);
         recyclerView.setBackground(cardView.getBackground());
+
+        if (recyclerView.getHeight() == 0) {
+            crdVPH.setVisibility(View.VISIBLE);
+        } else {
+            crdVPH.setVisibility(View.INVISIBLE);
+        }
+
     }
 }

@@ -42,6 +42,7 @@
         <activity android:name=".UserActivity" />
         <activity android:name=".EventActivity" />
         <activity android:name=".EventsAttendingActivity" />
+        <activity android:name=".TutorActivity"/>
         <activity android:name=".searchActivity" />
         <activity android:name=".AddEventActivity" />
 

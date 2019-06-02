@@ -96,6 +96,16 @@
                 android:textColor="#000000" />
 
             <TextView
+                android:id="@+id/tvTutorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:clickable="true"
+                android:text="FirstName LastName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#000000" />
+
+            <TextView
                 android:id="@+id/tvEventDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

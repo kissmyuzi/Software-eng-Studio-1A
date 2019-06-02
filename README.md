@@ -17,6 +17,10 @@ Highly efficient security protocols: to ensure data security and avoid legal rep
 Fully functional features: key functions listed above must perform to their requirement.
 Communication and cohesive teamwork: in order to ensure seamless development.
 
+### Video Showcase:
+
+https://youtu.be/lEjFXGhcau0
+
 
 ### Team 4 The Win members: 
 

@@ -74,7 +74,6 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        crdVPH = findViewById(R.id.crdVWPH);
         //crdVPH.setVisibility(View.INVISIBLE);
 
 

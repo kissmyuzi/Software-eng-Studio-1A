@@ -46,19 +46,36 @@ public class searchActivity extends AppCompatActivity {
         searchClose.setImageResource(R.drawable.ic_close_black_24dp);
 
         pdfFiles = new ArrayList<String>();
-        pdfFiles.add("Chemistry Notes Year 11");
-        pdfFiles.add("Economics Notes Year 12");
-        pdfFiles.add("English Guide Year 12");
-        pdfFiles.add("Fractions and Equations Year 10");
-        pdfFiles.add("HSC Handbook");
-        pdfFiles.add("Mastering Math Year 12");
-        pdfFiles.add("Math Extension 1 Year 12");
-        pdfFiles.add("Math Fundamentals Year 9");
-        pdfFiles.add("UMAT Sample Questions");
+        pdfFiles.add("Chemistry Notes Year 11 by Tony");
+        pdfFiles.add("Economics Notes Year 12 by Sam Aran");
+        pdfFiles.add("English Guide Year 12 by Joseph");
+        pdfFiles.add("Fractions and Equations Year 10 uploaded by Bill");
+        pdfFiles.add("HSC Handbook by Steve");
+        pdfFiles.add("Mastering Math Year 12 by Jeff Bezos");
+        pdfFiles.add("Math Extension 1 Year 12 by Larry");
+        pdfFiles.add("Math Fundamentals Year 9 by Simon");
+        pdfFiles.add("English Notes by Sandra");//new notes start here in order from finder
+        pdfFiles.add("Eco Year 11 by Mariana");
+        pdfFiles.add("Eco Finance Notes by Mariana");
+        pdfFiles.add("Production Curves ECONOMICS by Joey");
+        pdfFiles.add("Physics Motors & Generators by Nick");
+        pdfFiles.add("Physics Space Notes Year 12 by Ami");
+        pdfFiles.add("Hospo Notes Year 12 by Kelvin Tran");
+        pdfFiles.add("English Essay year 12 19/20 by Jeremy");
+        pdfFiles.add("English King Lear Year 12 Notes by Jeremy");
+        pdfFiles.add("Maths 4 Unit Conics Year 12 Notes by Michael");
+        pdfFiles.add("Math EXT1 Limits Year 12 by Fred");
+        pdfFiles.add("Math EXT1 Inequations Year 12 by Vivian");
+        pdfFiles.add("Maths Parametrics Year 12 by Hector");
+        pdfFiles.add("Ext 1 Maths Trigeqn Notes Year 12 by Boris Le");
 
-        String[] pdfFiles = {"Chemistry Notes Year 11", "Economics Notes Year 12", "English Guide Year 12",
-                "Fractions and Equations Year 10", "HSC Handbook", "Mastering Math Year 12",
-                "Math Extension 1 Year 12", "Math Fundamentals year 9", "UMAT Sample Questions"};
+        String[] pdfFiles = {"Chemistry Notes Year 11 by Tony", "Economics Notes Year 12 by Sam Aran", "English Guide Year 12 by Joseph",
+                "Fractions and Equations Year 10 uploaded by Bill", "HSC Handbook by Steve", "Mastering Math Year 12 by Jeff Bezos",
+                "Math Extension 1 Year 12 by Larry", "Math Fundamentals year 9 by Simon", "UMAT Sample Questions by Kathy",
+                "English Notes by Sandra", "Eco Year 11 by Mariana", "Eco Finance Notes by Mariana", "Production Curves ECONOMICS by Joey",
+        "Physics Motors & Generators by Nick", "Physics Space Notes Year 12 by Ami", "Hospo Notes Year 12 by Kelvin Tran", "English Essay year 12 19/20 by Jeremy",
+        "English King Lear Year 12 Notes by Jeremy", "Maths 4 Unit Conics Year 12 Notes by Michael", "Math EXT1 Limits Year 12 by Fred", "Math EXT1 Inequations Year 12 by Vivian",
+        "Maths Parametrics Year 12 by Hector", "Ext 1 Maths Trigeqn Notes Year 12 by Boris Le"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,pdfFiles) {
 

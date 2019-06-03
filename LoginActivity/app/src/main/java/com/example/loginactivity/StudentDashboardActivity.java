@@ -143,11 +143,5 @@ public class StudentDashboardActivity extends AppCompatActivity implements View.
         ViewCompat.setElevation(recyclerView, 8);
         recyclerView.setBackground(cardView.getBackground());
 
-        if (recyclerView.getHeight() == 0) {
-            crdVPH.setVisibility(View.VISIBLE);
-        } else {
-            crdVPH.setVisibility(View.INVISIBLE);
-        }
-
     }
 }

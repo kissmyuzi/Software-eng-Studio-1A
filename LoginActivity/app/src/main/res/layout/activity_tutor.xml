@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -115,4 +116,10 @@
         android:src="@drawable/ic_search_black_24dp"
         android:foreground="?attr/selectableItemBackground"/>
     </LinearLayout>
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/donation_history"
+        android:paddingBottom="100dp"/>
+
 </android.support.constraint.ConstraintLayout>

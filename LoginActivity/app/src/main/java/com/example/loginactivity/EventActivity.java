@@ -34,6 +34,7 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
     private TextView description;
     private TextView location;
     private TextView time;
+    private TextView tutorName;
     private String temp;
     private MapView mapView;
     private GoogleMap map;
@@ -51,7 +52,10 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
-
+        tutorName = findViewById(R.id.tvTutorName);
+        tutorName.setText("Jack Lyon");
+        tutorName.setTextColor(Color.BLUE);
+        tutorName.setOnClickListener(this);
         name = findViewById(R.id.tvEventName);
         date = findViewById(R.id.tvEventDate);
         time = findViewById(R.id.tvEventTime);
@@ -123,6 +127,9 @@ public class EventActivity extends AppCompatActivity implements OnMapReadyCallba
                 startActivity(new Intent(EventActivity.this, StudentDashboardActivity.class));
             }
 
+        }
+        else if (view == tutorName) {
+            startActivity(new Intent(EventActivity.this, TutorActivity.class));
         }
     }
 }
